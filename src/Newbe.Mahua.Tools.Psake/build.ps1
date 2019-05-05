@@ -5,24 +5,24 @@ properties {
     $configuration = "Debug"
     $releaseBase = "$rootNow\bin"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
-    $mahuaDownloadTempDir = "$($env:TEMP)\Newbe\Newbe.Mahua"
-	$assetDirName = "YUELUO"
+    $mahuaDownloadTempDir = "$( $env:TEMP )\Newbe\Newbe.Mahua"
+    $assetDirName = "YUELUO"
 }
 
 $pkgNames = @{
-    "platform"  = @(
-        "Newbe.Mahua.CQP",
-        "Newbe.Mahua.MPQ",
-        "Newbe.Mahua.QQLight",
-        "Newbe.Mahua.CleverQQ"
+    "platform" = @(
+    "Newbe.Mahua.CQP",
+    "Newbe.Mahua.MPQ",
+    "Newbe.Mahua.QQLight",
+    "Newbe.Mahua.CleverQQ"
     )
     "framework" = @(
-        "Newbe.Mahua",
-        "Newbe.Mahua.PluginLoader"
+    "Newbe.Mahua",
+    "Newbe.Mahua.PluginLoader"
     )
-    "ext"       = @(
-        "Newbe.Mahua.Administration",
-        "Newbe.Mahua.CQP.ApiExtensions"
+    "ext" = @(
+    "Newbe.Mahua.Administration",
+    "Newbe.Mahua.CQP.ApiExtensions"
     )
 }
 
@@ -33,41 +33,45 @@ $installedExts = $pkg.packages.package | Where-Object { $pkgNames.ext.Contains($
 $installedFramework = $pkg.packages.package | Where-Object { $pkgNames.framework.Contains($_.id) }
 $installedAll = $pkg.packages.package | Where-Object { $_.id.StartsWith("Newbe.Mahua") }
 
-function Get-MahuaPackage {
+function Get-MahuaPackage
+{
     param (
         [string]$id
     )
-    $re = ($installedAll | Where-Object { $_.id -eq $id})
+    $re = ($installedAll | Where-Object { $_.id -eq $id })
     $re
     return $re[0]
 }
-function Get-Download-Package-ToolsDir {
+function Get-Download-Package-ToolsDir
+{
     param (
         $package
     )
-    return "$mahuaDownloadTempDir\$($package.id).$($package.version)\tools"
+    return "$mahuaDownloadTempDir\$( $package.id ).$( $package.version )\tools"
 }
 
-function Copy-FrameworkItems ($dest) {
+function Copy-FrameworkItems($dest)
+{
     Exec {
         $installedFramework | ForEach-Object {
-            Write-Output "copy start : $($_.id).$($_.version)"
+            Write-Output "copy start : $( $_.id ).$( $_.version )"
             $framework = Get-MahuaPackage -id $_.id
             $toolBase = Get-Download-Package-ToolsDir -package $framework
             Copy-Item -Path  "$toolBase\NewbeLibs\Framework\*" -Destination $dest
-            Write-Output "copy end : $($_.id).$($_.version)"
+            Write-Output "copy end : $( $_.id ).$( $_.version )"
         }
     }
 }
 
-function Copy-FrameworkExtensionItems ($dest) {
+function Copy-FrameworkExtensionItems($dest)
+{
     Exec {
         $installedExts | ForEach-Object {
-            Write-Output "copy start : $($_.id).$($_.version)"
+            Write-Output "copy start : $( $_.id ).$( $_.version )"
             $ext = Get-MahuaPackage -id $_.id
             $toolBase = Get-Download-Package-ToolsDir -package $ext
             Copy-Item -Path  "$toolBase\NewbeLibs\Framework\Extensions\*" -Destination $dest -Recurse
-            Write-Output "copy end : $($_.id).$($_.version)"
+            Write-Output "copy end : $( $_.id ).$( $_.version )"
         }
     }
 }
@@ -86,12 +90,12 @@ Task Clean -Description "清理" {
 Task Init -depends Clean -Description "初始化参数" {
     $InstalledPlatforms | ForEach-Object {
         Exec {
-            Write-Output "platform installed : $($_.id).$($_.version)"
+            Write-Output "platform installed : $( $_.id ).$( $_.version )"
         }
     }
     $installedExts | ForEach-Object {
         Exec {
-            Write-Output "extensions installed : $($_.id).$($_.version)"
+            Write-Output "extensions installed : $( $_.id ).$( $_.version )"
         }
     }
 }
@@ -99,9 +103,13 @@ Task Init -depends Clean -Description "初始化参数" {
 Task DonwloadPackages -depends Init -Description "下载 nuget 包到临时目录" {
     $installedAll | ForEach-Object {
         $toolBase = Get-Download-Package-ToolsDir -package $_
-        if (-not (Test-Path $toolBase)) {
-            Write-Output "cmd : nuget install $($_.id) -version $($_.version) -OutputDirectory $mahuaDownloadTempDir -Verbosity quiet"
-            cmd /c """$nugetexe"" install $($_.id) -version $($_.version) -OutputDirectory $mahuaDownloadTempDir -Verbosity quiet"
+        if (-not(Test-Path $toolBase))
+        {
+            Write-Output "cmd : nuget install $( $_.id ) -version $( $_.version ) -OutputDirectory $mahuaDownloadTempDir -Verbosity quiet"
+            Exec{
+                cmd /c """$nugetexe"" install $( $_.id ) -version $( $_.version ) -OutputDirectory $mahuaDownloadTempDir -Verbosity quiet"
+            }
+
         }
     }
 }
@@ -119,7 +127,8 @@ Task Build -depends Nuget -Description "编译" {
 }
 
 # 生成CQP的JSON文件
-function WriteCqpJsonFile ($targetFilePath) {
+function WriteCqpJsonFile($targetFilePath)
+{
     # 加载所有的DLL
     Get-ChildItem  "$releaseBase\$configuration\*" *.dll | ForEach-Object {
         [void][reflection.assembly]::LoadFile($_)
@@ -146,7 +155,7 @@ function WriteCqpJsonFile ($targetFilePath) {
         $v = [string](10 * [int]$_)
         $versionNos += $v
     }
-    $json.version_id = [int] $versionNos
+    $json.version_id = [int]$versionNos
 
     # 写入文件
     $encoding = [System.Text.Encoding]::GetEncoding("gb2312")
@@ -154,8 +163,10 @@ function WriteCqpJsonFile ($targetFilePath) {
 }
 
 Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
-    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.CQP"} | ForEach-Object {
+    $InstalledPlatforms | Where-Object { $_.id -eq "Newbe.Mahua.CQP" } | ForEach-Object {
         Exec {
+            # CQP 要求 dll 名称和 appid 要相同，并且为小写
+            $cqpPluginDllName = $pluginName.ToLowerInvariant()
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\CQP"
             New-Item -ItemType Directory "$releaseBase\CQP\$pluginName"
@@ -164,8 +175,8 @@ Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
             Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CLR\*" -Destination "$releaseBase\CQP" -Recurse
             Copy-FrameworkExtensionItems -dest "$releaseBase\CQP\$pluginName"
             Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\CQP\$pluginName" -Recurse
-            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$pluginName.dll"
-            WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\app\$pluginName.json"
+            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$cqpPluginDllName.dll"
+            WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\app\$cqpPluginDllName.json"
 
             Copy-Item "$releaseBase\CQP\$pluginName" "$releaseBase\CQP\$assetDirName\$pluginName" -Recurse
             Get-ChildItem "$releaseBase\CQP\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
@@ -177,7 +188,7 @@ Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
 }
 
 Task PackQQLight -depends DonwloadPackages, Build -Description "QQLight打包" {
-    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.QQLight"}  | ForEach-Object {
+    $InstalledPlatforms | Where-Object { $_.id -eq "Newbe.Mahua.QQLight" }  | ForEach-Object {
         Exec {
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\QQLight"
@@ -199,7 +210,7 @@ Task PackQQLight -depends DonwloadPackages, Build -Description "QQLight打包" {
 }
 
 Task PackMPQ -depends DonwloadPackages, Build -Description "MPQ打包" {
-    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.MPQ"}| ForEach-Object {
+    $InstalledPlatforms | Where-Object { $_.id -eq "Newbe.Mahua.MPQ" }| ForEach-Object {
         Exec {
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\MPQ"
@@ -221,7 +232,7 @@ Task PackMPQ -depends DonwloadPackages, Build -Description "MPQ打包" {
 }
 
 Task PackCleverQQ -depends DonwloadPackages, Build -Description "CleverQQ打包" {
-    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.CleverQQ"}| ForEach-Object {
+    $InstalledPlatforms | Where-Object { $_.id -eq "Newbe.Mahua.CleverQQ" }| ForEach-Object {
         Exec {
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\CleverQQ"
@@ -243,6 +254,6 @@ Task PackCleverQQ -depends DonwloadPackages, Build -Description "CleverQQ打包"
 }
 
 Task Pack -depends PackCQP, PackMPQ, PackCleverQQ, PackQQLight -Description "打包" {
-    Write-Output "构建完毕，当前时间为 $(Get-Date)"
+    Write-Output "构建完毕，当前时间为 $( Get-Date )"
 }
 
