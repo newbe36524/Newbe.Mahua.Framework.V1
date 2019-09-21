@@ -1,4 +1,4 @@
-﻿Framework 4.6
+﻿Framework "4.6x86"
 properties {
     $rootNow = Resolve-Path .
     $deployMode = "Debug"
@@ -113,5 +113,11 @@ Task PushTemplate -depends PackTemplate -Description "推送项目模板" {
 Task ReconfigDllExport -description "初始化DllExport" {
     Exec {
         .\DllExport.bat  -action Restore -sln-file Newbe.Mahua.sln
+    }
+}
+
+Task SetNugetApiKey -description "设置 nuget ApiKey" {
+    Exec {
+        . $nugetexe setapikey '***' -source https://www.nuget.org/
     }
 }
