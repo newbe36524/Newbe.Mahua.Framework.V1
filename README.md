@@ -3,7 +3,7 @@
 先点击一下右上角的Star，开启隐藏功能。
 
 [![](https://img.shields.io/appveyor/tests/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![](https://img.shields.io/appveyor/ci/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors)
 
 ## 入坑提示
 
@@ -224,6 +224,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><a href="https://github.com/LabelZhou"><img src="https://avatars2.githubusercontent.com/u/34649549?v=4" width="100px;" alt="LabelZhou"/><br /><sub><b>LabelZhou</b></sub></a><br /><a href="#ideas-LabelZhou" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://www.r4v3zn.com"><img src="https://avatars2.githubusercontent.com/u/18393907?v=4" width="100px;" alt="r4v3zn"/><br /><sub><b>r4v3zn</b></sub></a><br /><a href="#ideas-0nise" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/CinikiC"><img src="https://avatars1.githubusercontent.com/u/41052385?v=4" width="100px;" alt="Ciniki"/><br /><sub><b>Ciniki</b></sub></a><br /><a href="#ideas-CinikiC" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/Jimesarrice"><img src="https://avatars0.githubusercontent.com/u/38239619?v=4" width="100px;" alt="Jimes"/><br /><sub><b>Jimes</b></sub></a><br /><a href="#ideas-Jimesarrice" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
