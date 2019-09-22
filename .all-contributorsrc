@@ -1,5 +1,5 @@
 {
-  "projectName": "Newbe.Mahua.Framework",
+  "projectName": "Newbe.Mahua.Framework.V1",
   "projectOwner": "newbe36524",
   "repoType": "github",
   "repoHost": "https://github.com",
@@ -75,6 +75,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "CinikiC",
+      "name": "Ciniki",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/41052385?v=4",
+      "profile": "https://github.com/CinikiC",
+      "contributions": [
+        "ideas"
+      ]
     }
-  ]
+  ],
+  "contributorsPerLine": 7
 }
