@@ -1,5 +1,5 @@
 {
-  "projectName": "Newbe.Mahua.Framework",
+  "projectName": "Newbe.Mahua.Framework.V1",
   "projectOwner": "newbe36524",
   "repoType": "github",
   "repoHost": "https://github.com",
@@ -75,6 +75,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "LabelZhou",
+      "name": "LabelZhou",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/34649549?v=4",
+      "profile": "https://github.com/LabelZhou",
+      "contributions": [
+        "ideas"
+      ]
     }
-  ]
+  ],
+  "contributorsPerLine": 7
 }
