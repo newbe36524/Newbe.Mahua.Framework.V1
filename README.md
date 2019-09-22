@@ -3,7 +3,7 @@
 先点击一下右上角的Star，开启隐藏功能。
 
 [![](https://img.shields.io/appveyor/tests/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![](https://img.shields.io/appveyor/ci/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
 
 ## 入坑提示
 
@@ -210,8 +210,21 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars1.githubusercontent.com/u/7685462?v=4" width="100px;"/><br /><sub><b>Newbe36524</b></sub>](http://www.newbe.pro)<br />[📖](https://github.com/newbe36524/Newbe.Mahua.Framework/commits?author=newbe36524 "Documentation") [💻](https://github.com/newbe36524/Newbe.Mahua.Framework/commits?author=newbe36524 "Code") [🔧](#tool-newbe36524 "Tools") [📝](#blog-newbe36524 "Blogposts") [💡](#example-newbe36524 "Examples") | [<img src="https://avatars1.githubusercontent.com/u/12078678?v=4" width="100px;"/><br /><sub><b>Traceless</b></sub>](https://traceless.site/)<br />[🐛](https://github.com/newbe36524/Newbe.Mahua.Framework/issues?q=author%3Atraceless0929 "Bug reports") | [<img src="https://avatars1.githubusercontent.com/u/43395785?v=4" width="100px;"/><br /><sub><b>kotoneme</b></sub>](https://github.com/kotoneme)<br />[💻](https://github.com/newbe36524/Newbe.Mahua.Framework/commits?author=kotoneme "Code") | [<img src="https://avatars1.githubusercontent.com/u/7455309?v=4" width="100px;"/><br /><sub><b>AllenXie</b></sub>](https://github.com/allenxie888)<br />[💻](https://github.com/newbe36524/Newbe.Mahua.Framework/commits?author=allenxie888 "Code") | [<img src="https://avatars1.githubusercontent.com/u/7760499?v=4" width="100px;"/><br /><sub><b>bgli100</b></sub>](https://github.com/bgli100)<br />[🐛](https://github.com/newbe36524/Newbe.Mahua.Framework/issues?q=author%3Abgli100 "Bug reports") | [<img src="https://avatars1.githubusercontent.com/u/20368567?v=4" width="100px;"/><br /><sub><b>Q-Q</b></sub>](https://github.com/newce36524)<br />[🐛](https://github.com/newbe36524/Newbe.Mahua.Framework/issues?q=author%3Anewce36524 "Bug reports") | [<img src="https://avatars1.githubusercontent.com/u/45588935?v=4" width="100px;"/><br /><sub><b>LollipopGeneral</b></sub>](https://github.com/LollipopGeneral)<br />[💻](https://github.com/newbe36524/Newbe.Mahua.Framework/commits?author=LollipopGeneral "Code") |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+<table>
+  <tr>
+    <td align="center"><a href="http://www.newbe.pro"><img src="https://avatars1.githubusercontent.com/u/7685462?v=4" width="100px;" alt="Newbe36524"/><br /><sub><b>Newbe36524</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=newbe36524" title="Documentation">📖</a> <a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=newbe36524" title="Code">💻</a> <a href="#tool-newbe36524" title="Tools">🔧</a> <a href="#blog-newbe36524" title="Blogposts">📝</a> <a href="#example-newbe36524" title="Examples">💡</a></td>
+    <td align="center"><a href="https://traceless.site/"><img src="https://avatars1.githubusercontent.com/u/12078678?v=4" width="100px;" alt="Traceless"/><br /><sub><b>Traceless</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Atraceless0929" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/kotoneme"><img src="https://avatars1.githubusercontent.com/u/43395785?v=4" width="100px;" alt="kotoneme"/><br /><sub><b>kotoneme</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=kotoneme" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/allenxie888"><img src="https://avatars1.githubusercontent.com/u/7455309?v=4" width="100px;" alt="AllenXie"/><br /><sub><b>AllenXie</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=allenxie888" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/bgli100"><img src="https://avatars1.githubusercontent.com/u/7760499?v=4" width="100px;" alt="bgli100"/><br /><sub><b>bgli100</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Abgli100" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/newce36524"><img src="https://avatars1.githubusercontent.com/u/20368567?v=4" width="100px;" alt="Q-Q"/><br /><sub><b>Q-Q</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Anewce36524" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/LollipopGeneral"><img src="https://avatars1.githubusercontent.com/u/45588935?v=4" width="100px;" alt="LollipopGeneral"/><br /><sub><b>LollipopGeneral</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=LollipopGeneral" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Jimesarrice"><img src="https://avatars0.githubusercontent.com/u/38239619?v=4" width="100px;" alt="Jimes"/><br /><sub><b>Jimes</b></sub></a><br /><a href="#ideas-Jimesarrice" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+</table>
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
