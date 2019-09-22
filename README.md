@@ -221,6 +221,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><a href="https://github.com/LollipopGeneral"><img src="https://avatars1.githubusercontent.com/u/45588935?v=4" width="100px;" alt="LollipopGeneral"/><br /><sub><b>LollipopGeneral</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=LollipopGeneral" title="Code">💻</a></td>
   </tr>
   <tr>
+    <td align="center"><a href="http://www.r4v3zn.com"><img src="https://avatars2.githubusercontent.com/u/18393907?v=4" width="100px;" alt="r4v3zn"/><br /><sub><b>r4v3zn</b></sub></a><br /><a href="#ideas-0nise" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/LabelZhou"><img src="https://avatars2.githubusercontent.com/u/34649549?v=4" width="100px;" alt="LabelZhou"/><br /><sub><b>LabelZhou</b></sub></a><br /><a href="#ideas-LabelZhou" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
