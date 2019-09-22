@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Newbe.Mahua.Template</id>
-    <version>1.14.0</version>
+    <version>1.16.0</version>
     <authors>Newbe</authors>
     <owners>Newbe</owners>
     <licenseUrl>https://raw.githubusercontent.com/newbe36524/Newbe.Mahua.Framework/master/LICENSE</licenseUrl>
