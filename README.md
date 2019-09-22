@@ -5,6 +5,31 @@
 [![](https://img.shields.io/appveyor/tests/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![](https://img.shields.io/appveyor/ci/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
 
+## 入坑提示
+
+建议开发者先根据自身需求结合表格，选择属于自己的专属开发框架，避免浪费时间。
+
+1. 编写一套代码就能在多个平台运行
+2. 支持使用除了C#之外的开发语言来开发
+3. 我希望他足够简单，不用学习太多就能掌握，通常只需要半个小时就能掌握所有内容
+4. 我希望社区的反馈足够快，有问题都可以帮我解决
+
+| SDK名称                                                                     | （1） | （2） | （3） | （4） |
+| --------------------------------------------------------------------------- | ----- | ----- | ----- | ----- |
+| 论坛中的其他SDK                                                             | ✔     | ✔     | ✔     | ✔     |
+| [Jie2GG.Native.Csharp.Frame](https://github.com/Jie2GG/Native.Csharp.Frame) | ✔     | ✘     | ✔     | ✔     |
+| [Newbe.Mahua V2](https://github.com/newbe36524/Newbe.Mahua.Framework/)      | ✔     | ✔     | ✘     | ✘     |
+| [Newbe.Mahua V1](https://github.com/newbe36524/Newbe.Mahua.Framework.V1)    | ✔     | ✘     | ✘     | ✘     |
+
+### 论坛其他SDK的链接
+
+| 平台     | 链接                                                      |
+| -------- | --------------------------------------------------------- |
+| CQP      | <https://cqp.cc/t/15124>                                  |
+| MPQ      | <https://f.mypcqq.cc>                                     |
+| CleverQQ | <https://d.cleverqq.cn/forum-45-1.html>                   |
+| QQLight  | <https://www.52chat.cc/forum.php?mod=forumdisplay&fid=45> |
+
 ## 开篇一张图，功能全靠编
 
 ![Newbe.Mahua.Version](i/体系结构.png)
@@ -32,6 +57,26 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 ## 立马开始
 
 点击查看[帮助文档](http://www.newbe.pro)开始编写第一个QQ机器人。
+
+### 快乐实践
+
+[我想将我的项目加在此处](https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues/new/choose)
+ 
+#### [i春秋社区机器人](https://github.com/0nise/ichunqiu_qqbot)
+ 
+i春秋社区机器人自2018年02月04日开始服务于i春秋社区，每日文章推送、文章查询、魔法币查询、作者信息查询、作家团奖金余额查询、奖金排行榜、i春秋课程查询等一列功能。据不完全统计，使用人数已经超过3.5万，使用次数达到20万，最大覆盖700+个群。
+
+#### [Repeater Breaker](https://github.com/CinikiC/QQbot-RepeaterBreaker)
+ 
+顾名思义，Repeater Breaker是专门针对QQ群中的复读现象开发的检测机器人，是各位群主治理复读机的辅助工具。
+
+#### [EVE-Marketsearch](https://github.com/Jimesarrice/EVE-Marketsearch)
+ 
+群机器人查询EVE市场价格。
+
+#### [Zhou.QQRobot](https://github.com/LabelZhou/Zhou.QQRobot)
+ 
+程序喵群机器人
 
 ## 版本
 
@@ -141,23 +186,6 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 | 撤回自己发送的消息 | √   |     |          |         |
 | 撤回群成员消息     | √   |     |          | √       |
 
-## 相关技术
-
-- <https://github.com/3F/DllExport>
-- <https://github.com/jbogard/MediatR>
-- <https://github.com/autofac/Autofac>
-- <https://github.com/mode51/Tungsten>
-- <https://gitee.com/yks/Newbe.Common>
-- <https://github.com/neuecc/MessagePack-CSharp>
-- <https://www.sonarlint.org/visualstudio/>
-- <https://github.com/xunit/xunit>
-- <http://www.fluentassertions.com/>
-- <https://github.com/ctaggart/SourceLink>
-- <https://github.com/HangfireIO/Hangfire>
-- <https://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki>
-- <https://github.com/aspnet/AspNetKatana/>
-- <https://github.com/paulcbetts/refit>
-
 ## 说在最后面
 
 开发本SDK的目的是为了促进.Net技术的交流学习。
@@ -171,6 +199,10 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 **最后，但是最重要的，一定要Star一下！**
 
 [借一步说话](http://www.newbe.pro/donate.html)
+
+特别感谢 Jetbrain 公司提供的 License 以支持该项目
+
+[![jetbrains](i/jetbrains-variant-3.png)](https://www.jetbrains.com/?from=Newbe.Mahua.Framework)
 
 ## Contributors
 
