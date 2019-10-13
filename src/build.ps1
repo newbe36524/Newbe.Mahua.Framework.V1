@@ -54,7 +54,6 @@ Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
 Task PackTemplate -depends Init -Description "打包项目模板" {
     $tpls = @(
         "Newbe.Mahua.Plugins.Template",
-        "Newbe.Mahua.Plugins.Template.CleverQQ",
         "Newbe.Mahua.Plugins.Template.CQP",
         "Newbe.Mahua.Plugins.Template.MPQ",
         "Newbe.Mahua.Plugins.Template.QQLight"
@@ -88,7 +87,6 @@ Task TestTemplate -depends PackTemplate -Description "测试项目模板可用�
 
     $tpls = @(
         "newbe.mahua.all",
-        "newbe.mahua.cleverqq",
         "newbe.mahua.cqp",
         "newbe.mahua.mpq",
         "newbe.mahua.qqlight"
