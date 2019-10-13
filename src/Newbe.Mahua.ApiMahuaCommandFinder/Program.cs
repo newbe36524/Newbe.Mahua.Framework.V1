@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Newbe.Mahua.Apis;
-using Newbe.Mahua.CleverQQ;
 using Newbe.Mahua.CQP;
 using Newbe.Mahua.CQP.ApiExtensions;
 using Newbe.Mahua.MPQ;
@@ -21,7 +20,6 @@ namespace Newbe.Mahua.ApiMahuaCommandFinder
             {
                 {MahuaPlatform.Cqp, typeof(CqpMahuaModule).Assembly},
                 {MahuaPlatform.Mpq, typeof(MpqMahuaModule).Assembly},
-                {MahuaPlatform.CleverQQ, typeof(CleverQQMahuaModule).Assembly},
                 {MahuaPlatform.QqLight, typeof(QqLightMahuaModule).Assembly},
             };
 
