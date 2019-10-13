@@ -1,17 +1,17 @@
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.16.1</VersionPrefix>
+    <VersionPrefix>1.17</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
-    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework.V1/master/logo.png</PackageIconUrl>
     <PackageProjectUrl>http://www.newbe.pro</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
+    <RepositoryUrl>https://github.com/newbe36524/Newbe.Mahua.Framework.V1</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageOutputPath>../build/</PackageOutputPath>
     <NoWarn>1701;1702;1705;1591</NoWarn>
     <WarningsAsErrors>true</WarningsAsErrors>
-    <PackageReleaseNotes>1. 修复了 CQP 和 CleverQQ 平台支持的问题
+    <PackageReleaseNotes>1. 移除了 CleverQQ
     </PackageReleaseNotes>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
