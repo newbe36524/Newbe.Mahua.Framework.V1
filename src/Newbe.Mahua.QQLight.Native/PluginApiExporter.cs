@@ -12,7 +12,7 @@ namespace Newbe.Mahua.QQLight.Native
         public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.QqLight;
 
         [DllExport("Information", CallingConvention.StdCall)]
-        public static string Information(string authCode)
+        public static string Information(int authCode)
         {
             var informationCommandResult = Native.PluginInstanceManager.GetInstance()
                 .SendCommand<InformationCommand, InformationCommandResult>(new InformationCommand
@@ -65,7 +65,8 @@ namespace Newbe.Mahua.QQLight.Native
         /// <param name="messageId"></param>
         /// <returns></returns>
         [DllExport("Event_GetNewMsg", CallingConvention.StdCall)]
-        public static string Event_GetNewMsg(int type, string fromgroup, string fromqq, string message, string messageId)
+        public static string Event_GetNewMsg(int type, string fromgroup, string fromqq, string message,
+            string messageId)
         {
             FromMessageType t;
             switch (type)
@@ -89,6 +90,7 @@ namespace Newbe.Mahua.QQLight.Native
                     t = FromMessageType.Unknown;
                     break;
             }
+
             Native.PluginInstanceManager.GetInstance().SendCommand(new GetNewMsgCommand
             {
                 Message = message,
@@ -257,21 +259,10 @@ namespace Newbe.Mahua.QQLight.Native
         [DllExport("Event_BecomeFriends", CallingConvention.StdCall)]
         public static string Event_BecomeFriends(string fromqq)
         {
-            Native.PluginInstanceManager.GetInstance().SendCommand(new BecomeFriendsCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new FriendChangeCommand
             {
                 Fromqq = fromqq
             });
-            return Continue;
-        }
-
-        /// <summary>
-        /// Cookies更新时会触发此事件
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("Event_UpdataCookies", CallingConvention.StdCall)]
-        public static string Event_UpdataCookies()
-        {
-            Native.PluginInstanceManager.GetInstance().SendCommand(new UpdataCookiesCommand());
             return Continue;
         }
 
@@ -281,6 +272,28 @@ namespace Newbe.Mahua.QQLight.Native
         /// <returns></returns>
         [DllExport("_TestMenu1", CallingConvention.StdCall)]
         public static int _TestMenu1()
+        {
+            Native.PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
+            return 0;
+        }
+
+        /// <summary>
+        /// 好友变动事件（包含成为单向好友，双向好友，被好友删除）
+        /// type 1.成为好友（单向） 2、成为好友（双向） 3、解除好友关系
+        /// </summary>
+        [DllExport("Event_FriendChange", CallingConvention.StdCall)]
+        public static string Event_FriendChange(int type, string fromqq)
+        {
+            // TODO
+            return Continue;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
+        [DllExport("Event_Menu", CallingConvention.StdCall)]
+        public static int Event_Menu()
         {
             Native.PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
             return 0;

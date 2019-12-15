@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Newbe.Mahua.Messages.CancelMessage;
 
 namespace Newbe.Mahua.MahuaEvents
 {
@@ -40,5 +41,10 @@ namespace Newbe.Mahua.MahuaEvents
         /// 消息内容
         /// </summary>
         public string Message { get; set; }
+        
+        /// <summary>
+        /// 用于撤回消息的Token
+        /// </summary>
+        public IMessageCancelToken MessageCancelToken { get; set; }
     }
 }

@@ -43,7 +43,7 @@ namespace Newbe.Mahua.QQLight
                 builder.RegisterType<AddFrinendCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<AddGroupCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<AdminChangeCommandHandler>().AsImplementedInterfaces();
-                builder.RegisterType<BecomeFriendsCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<FriendChangeCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<GetNewMsgCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<GetQqWalletDataCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<GroupMemberDecreaseCommandHandler>().AsImplementedInterfaces();

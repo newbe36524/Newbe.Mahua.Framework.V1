@@ -187,7 +187,7 @@ Task PackQQLight -depends DonwloadPackages, Build -Description "QQLight打包" {
             Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CLR\*" -Destination "$releaseBase\QQLight" -Recurse
             Copy-FrameworkExtensionItems -dest "$releaseBase\QQLight\$pluginName"
             Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\QQLight\$pluginName" -Recurse
-            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.QQLight.Native.dll" -Destination  "$releaseBase\QQLight\plugin\$pluginName.plugin.dll"
+            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.QQLight.Native.dll" -Destination  "$releaseBase\QQLight\plugin\$pluginName.ql.dll"
 
             Copy-Item "$releaseBase\QQLight\$pluginName" "$releaseBase\QQLight\$assetDirName\$pluginName" -Recurse
             Get-ChildItem "$releaseBase\QQLight\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"

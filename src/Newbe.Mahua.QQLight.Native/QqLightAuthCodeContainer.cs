@@ -1,23 +1,37 @@
 ﻿using System;
 using System.IO;
+using Newbe.Mahua.Logging;
 
 namespace Newbe.Mahua.QQLight.Native
 {
     internal class QqLightAuthCodeContainer : IQqLightAuthCodeContainer
     {
-        public string AuthCode { get; set; }
+        private static readonly ILog Logger = LogProvider.For<QqLightAuthCodeContainer>();
 
-        private static readonly string TempFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "qqlightcode.txt");
+        public int AuthCode { get; set; }
+
+        private static readonly string TempFileName =
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "qqlightcode.txt");
+
         public void Save()
         {
-            File.WriteAllText(TempFileName, AuthCode);
+            File.WriteAllText(TempFileName, AuthCode.ToString());
         }
 
         public void Load()
         {
             if (File.Exists(TempFileName))
             {
-                AuthCode = File.ReadAllText(TempFileName);
+                var content = File.ReadAllText(TempFileName);
+                if (int.TryParse(content, out var authCode))
+                {
+                    AuthCode = authCode;
+                }
+                else
+                {
+                    Logger.Error("error on reading auth code from file");
+                }
+
                 File.Delete(TempFileName);
             }
         }

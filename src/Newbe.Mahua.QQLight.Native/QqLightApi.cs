@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Text;
 using Newbe.Mahua.NativeApi;
 
@@ -6,464 +7,1279 @@ namespace Newbe.Mahua.QQLight.Native
 {
     public class QqLightApi : IQqLightApi
     {
-        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
-
-        public QqLightApi(
-            IQqLightAuthCodeContainer qqLightAuthCodeContainer)
-        {
-            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
-        }
-
         /// <summary>
-        /// 撤回消息
+        /// //给QQ点名片赞，PCQQ点赞不稳定，容易失效
         /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="消息ID"></param>
-        void IQqLightApi.Api_DeleteMsg(string 群号, string 消息ID)
-            => NativeMethods.Api_DeleteMsg(群号, 消息ID, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="QQ号"></param>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SendPraise(string QQ号)
-            => NativeMethods.Api_SendPraise(QQ号, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_SendPraise([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_SendPraise(QQID, AuthCode);
 
         /// <summary>
-        ///
+        /// //抖动好友窗口
         /// </summary>
-        /// <param name="QQ号"></param>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SendShake(string QQ号)
-            => NativeMethods.Api_SendShake(QQ号, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_SendShake([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_SendShake(QQID, AuthCode);
 
         /// <summary>
-        ///
+        /// //取得网页操作时需要用到的bkn/Gtk
         /// </summary>
+        /// <param name="Cookies"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        string IQqLightApi.Api_Getbkn()
-            => NativeMethods.Api_Getbkn(_qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_Getbkn([Description("")] string Cookies, [Description("")] int AuthCode)
+            => NativeMethods.Api_Getbkn(Cookies, AuthCode);
 
         /// <summary>
-        ///
+        /// //取得网页操作时需要用到的bkn/Gtk
         /// </summary>
-        /// <param name="群号"></param>
+        /// <param name="Cookies"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_QuitGroup(string 群号)
-            => NativeMethods.Api_QuitGroup(群号, _qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_Getbkn_Long([Description("")] string Cookies, [Description("")] int AuthCode)
+            => NativeMethods.Api_Getbkn_Long(Cookies, AuthCode);
 
         /// <summary>
-        ///
+        /// //退出群
         /// </summary>
-        /// <param name="讨论组号"></param>
+        /// <param name="GroupID"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_QuitDiscussGroup(string 讨论组号)
-            => NativeMethods.Api_QuitDiscussGroup(讨论组号, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_QuitGroup([Description("")] string GroupID, [Description("")] int AuthCode)
+            => NativeMethods.Api_QuitGroup(GroupID, AuthCode);
 
         /// <summary>
-        ///
+        /// //退出讨论组
         /// </summary>
-        /// <param name="个性签名"></param>
+        /// <param name="GroupID"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SetSignature(string 个性签名)
-            => NativeMethods.Api_SetSignature(个性签名, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_QuitDiscussGroup([Description("")] string GroupID, [Description("")] int AuthCode)
+            => NativeMethods.Api_QuitDiscussGroup(GroupID, AuthCode);
 
         /// <summary>
-        ///
+        /// //修改个性签名
         /// </summary>
-        /// <param name="讨论组号"></param>
-        /// <param name="名称"></param>
+        /// <param name="Signature"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SetDiscussName(string 讨论组号, string 名称)
-            => NativeMethods.Api_SetDiscussName(讨论组号, 名称, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_SetSignature([Description("")] string Signature, [Description("")] int AuthCode)
+            => NativeMethods.Api_SetSignature(Signature, AuthCode);
 
         /// <summary>
-        ///
+        /// //修改讨论组名称
         /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="是否全群禁言"></param>
+        /// <param name="DiscussGroupID"></param>
+        /// <param name="Name"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_BanGroup(string 群号, bool 是否全群禁言)
-            => NativeMethods.Api_BanGroup(群号, 是否全群禁言, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_SetDiscussName([Description("")] string DiscussGroupID, [Description("")] string Name,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_SetDiscussName(DiscussGroupID, Name, AuthCode);
 
         /// <summary>
-        ///
+        /// //修改群名称
         /// </summary>
-        /// <param name="群号"></param>
+        /// <param name="GroupID"></param>
+        /// <param name="Name"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_RemoveGroup(string 群号)
-            => NativeMethods.Api_RemoveGroup(群号, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_SetGroupName([Description("")] string GroupID, [Description("")] string Name,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_SetGroupName(GroupID, Name, AuthCode);
 
         /// <summary>
-        ///
+        /// //设置全群禁言
         /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="QQ号"></param>
-        /// <param name="是否设置为管理员">真,设置  假,取消</param>
+        /// <param name="GroupID"></param>
+        /// <param name="IsBanGroup">真 开启全群禁言 假 关闭全群禁言</param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SetManager(string 群号, string QQ号, bool 是否设置为管理员)
-            => NativeMethods.Api_SetManager(群号, QQ号, 是否设置为管理员, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_BanGroup([Description("")] string GroupID,
+            [Description("真 开启全群禁言 假 关闭全群禁言")] bool IsBanGroup, [Description("")] int AuthCode)
+            => NativeMethods.Api_BanGroup(GroupID, IsBanGroup, AuthCode);
 
         /// <summary>
-        ///
+        /// //设置管理员权限
         /// </summary>
-        /// <param name="群号"></param>
+        /// <param name="GroupID"></param>
+        /// <param name="QQID"></param>
+        /// <param name="IsManager">真,设置  假,取消</param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_SetManager([Description("")] string GroupID, [Description("")] string QQID,
+            [Description("真,设置  假,取消")] bool IsManager, [Description("")] int AuthCode)
+            => NativeMethods.Api_SetManager(GroupID, QQID, IsManager, AuthCode);
+
+        /// <summary>
+        /// //禁言群成员
+        /// </summary>
+        /// <param name="GroupID"></param>
         /// <param name="QQ"></param>
-        /// <param name="禁言时长">单位:秒  0为解除禁言</param>
+        /// <param name="time">单位:秒  0为解除禁言</param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_Ban(string 群号, string QQ, int 禁言时长)
-            => NativeMethods.Api_Ban(群号, QQ, 禁言时长, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_Ban([Description("")] string GroupID, [Description("")] string QQ,
+            [Description("单位:秒  0为解除禁言")] int time, [Description("")] int AuthCode)
+            => NativeMethods.Api_Ban(GroupID, QQ, time, AuthCode);
 
         /// <summary>
-        ///
+        /// //修改匿名权限
         /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="是否允许匿名聊天"></param>
+        /// <param name="GroupID"></param>
+        /// <param name="IsSetAnony">真 允许匿名  假 禁止匿名</param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SetAnony(string 群号, bool 是否允许匿名聊天)
-            => NativeMethods.Api_SetAnony(群号, 是否允许匿名聊天, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_SetAnony([Description("")] string GroupID, [Description("真 允许匿名  假 禁止匿名")] bool IsSetAnony,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_SetAnony(GroupID, IsSetAnony, AuthCode);
 
         /// <summary>
-        ///
+        /// //踢出群成员
         /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="QQ号"></param>
-        /// <param name="是否不再接收加群申请"></param>
+        /// <param name="GroupID"></param>
+        /// <param name="QQID"></param>
+        /// <param name="IsBan">不再接受此人加群</param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_RemoveMember(string 群号, string QQ号, bool 是否不再接收加群申请)
-            => NativeMethods.Api_RemoveMember(群号, QQ号, 是否不再接收加群申请, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_RemoveMember([Description("")] string GroupID, [Description("")] string QQID,
+            [Description("不再接受此人加群")] bool IsBan, [Description("")] int AuthCode)
+            => NativeMethods.Api_RemoveMember(GroupID, QQID, IsBan, AuthCode);
 
         /// <summary>
-        ///
+        /// //解散群
         /// </summary>
+        /// <param name="GroupID">群号</param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        string IQqLightApi.Api_GetCookies()
-            => NativeMethods.Api_GetCookies(_qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_RemoveGroup([Description("群号")] string GroupID, [Description("")] int AuthCode)
+            => NativeMethods.Api_RemoveGroup(GroupID, AuthCode);
 
         /// <summary>
-        ///
+        /// //取得操作网页所需要的Cookies
         /// </summary>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        string IQqLightApi.Api_GetLoginQQ()
-            => NativeMethods.Api_GetLoginQQ(_qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_GetCookies([Description("")] int AuthCode)
+            => NativeMethods.Api_GetCookies(AuthCode);
 
         /// <summary>
-        /// 是否开启/关闭
+        /// //取得QQ空间Token
         /// </summary>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        bool IQqLightApi.Api_GetPluginState()
-            => NativeMethods.Api_GetPluginState(_qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_GetQzoneToken([Description("")] int AuthCode)
+            => NativeMethods.Api_GetQzoneToken(AuthCode);
 
         /// <summary>
-        /// 框架为插件所创建的一个目录
+        /// //取得QQ空间Cookies
         /// </summary>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        string IQqLightApi.Api_GetPath()
-            => NativeMethods.Api_GetPath(_qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_GetQzoneCookies([Description("")] int AuthCode)
+            => NativeMethods.Api_GetQzoneCookies(AuthCode);
 
         /// <summary>
-        /// 机器人发送消息
+        /// //发表说说
         /// </summary>
-        /// <param name="类型">1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息</param>
-        /// <param name="群组">类型不为1时为群号/讨论组号  类型为1时可留空</param>
-        /// <param name="QQ号">类型为2，4时可留空</param>
-        /// <param name="内容"></param>
+        /// <param name="Str"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SendMsg(int 类型, string 群组, string QQ号, string 内容)
-            => NativeMethods.Api_SendMsg(类型, 群组, QQ号, 内容, _qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_SendTaotao([Description("")] string Str, [Description("")] int AuthCode)
+            => NativeMethods.Api_SendTaotao(Str, AuthCode);
 
         /// <summary>
-        /// 处理加群消息
+        /// //取得所登录的QQ
         /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="QQ号"></param>
-        /// <param name="Seq"></param>
-        /// <param name="操作方式">1.同意 2.拒绝 3.忽略</param>
-        /// <param name="拒绝理由">参数可为空，且为 拒绝 时有效</param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SetGroupAdd(string 群号, string QQ号, string Seq, int 操作方式, string 拒绝理由)
-            => NativeMethods.Api_SetGroupAdd(群号, QQ号, Seq, 操作方式, 拒绝理由, _qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_GetLoginQQ([Description("")] int AuthCode)
+            => NativeMethods.Api_GetLoginQQ(AuthCode);
 
         /// <summary>
-        /// 处理加好友消息
+        /// //框架为插件所创建的插件目录
         /// </summary>
-        /// <param name="QQ号"></param>
-        /// <param name="操作方式">1.同意 2.拒绝 3.忽略</param>
-        /// <param name="拒绝理由">参数可为空，且为 拒绝 时有效</param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SetFriendAdd(string QQ号, int 操作方式, string 拒绝理由)
-            => NativeMethods.Api_SetFriendAdd(QQ号, 操作方式, 拒绝理由, _qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_GetPath([Description("")] int AuthCode)
+            => NativeMethods.Api_GetPath(AuthCode);
 
         /// <summary>
-        ///
-        /// </summary>
-        /// <param name="类型"></param>
-        /// <param name="内容"></param>
-        /// <param name="字体颜色"></param>
-        /// <returns></returns>
-        void IQqLightApi.Api_SendLog(string 类型, string 内容, int 字体颜色)
-            => NativeMethods.Api_SendLog(类型, 内容, 字体颜色, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="好友QQ"></param>
-        /// <param name="备注名"></param>
-        /// <returns></returns>
-        void IQqLightApi.Api_SetFriendName(string 好友QQ, string 备注名)
-            => NativeMethods.Api_SetFriendName(好友QQ, 备注名, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="好友QQ"></param>
-        /// <returns></returns>
-        void IQqLightApi.Api_DeleteFriend(string 好友QQ)
-            => NativeMethods.Api_DeleteFriend(好友QQ, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="附加信息"></param>
-        /// <returns></returns>
-        void IQqLightApi.Api_AddGroup(string 群号, string 附加信息)
-            => NativeMethods.Api_AddGroup(群号, 附加信息, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        /// 返回网易云点歌XML
-        /// </summary>
-        /// <param name="歌曲ID"></param>
-        /// <returns></returns>
-        string IQqLightApi.Api_163Music(string 歌曲ID)
-            => NativeMethods.Api_163Music(歌曲ID, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        /// 返回QQ点歌XML
-        /// </summary>
-        /// <param name="歌曲ID"></param>
-        /// <returns></returns>
-        string IQqLightApi.Api_QQMusic(string 歌曲ID)
-            => NativeMethods.Api_QQMusic(歌曲ID, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        /// 返回Json点歌XML
-        /// </summary>
-        /// <param name="歌曲ID"></param>
-        /// <returns></returns>
-        string IQqLightApi.Api_JsonMusic(string 歌曲ID)
-            => NativeMethods.Api_JsonMusic(歌曲ID, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        /// 置插件错误管理
+        /// //置插件错误管理
         /// </summary>
         /// <param name="Code"></param>
         /// <param name="Str"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        string IQqLightApi.Api_Error(string Code, string Str)
-            => NativeMethods.Api_Error(Code, Str, _qqLightAuthCodeContainer.AuthCode);
+        string IQqLightApi.Api_Error([Description("")] string Code, [Description("")] string Str,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_Error(Code, Str, AuthCode);
 
         /// <summary>
-        /// 取得群内成员的名片
+        /// //机器人发送消息，返回值为该条消息的ID
+        /// </summary>
+        /// <param name="Type">1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息</param>
+        /// <param name="GroupID"></param>
+        /// <param name="QQID">类型为2，4时可留空</param>
+        /// <param name="Msg"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_SendMsg([Description("1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息")]
+            int Type, [Description("")] string GroupID, [Description("类型为2，4时可留空")] string QQID,
+            [Description("")] string Msg, [Description("")] int AuthCode)
+            => NativeMethods.Api_SendMsg(Type, GroupID, QQID, Msg, AuthCode);
+
+        /// <summary>
+        /// //处理加群消息
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="QQID"></param>
+        /// <param name="Seq"></param>
+        /// <param name="Type">1.同意 2.拒绝 3.忽略</param>
+        /// <param name="Reason">参数可为空，且为 拒绝 时有效</param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_SetGroupAdd([Description("")] string GroupID, [Description("")] string QQID,
+            [Description("")] string Seq, [Description("1.同意 2.拒绝 3.忽略")] int Type,
+            [Description("参数可为空，且为 拒绝 时有效")] string Reason, [Description("")] int AuthCode)
+            => NativeMethods.Api_SetGroupAdd(GroupID, QQID, Seq, Type, Reason, AuthCode);
+
+        /// <summary>
+        /// //处理加好友消息
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="Type">1.同意 2.拒绝 3.忽略</param>
+        /// <param name="Reason">参数可为空，且为 拒绝 时有效</param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_SetFriendAdd([Description("")] string QQID, [Description("1.同意 2.拒绝 3.忽略")] int Type,
+            [Description("参数可为空，且为 拒绝 时有效")] string Reason, [Description("")] int AuthCode)
+            => NativeMethods.Api_SetFriendAdd(QQID, Type, Reason, AuthCode);
+
+        /// <summary>
+        /// //向框架推送一条日志
+        /// </summary>
+        /// <param name="Type">日志类型（自定义）</param>
+        /// <param name="Msg">日志内容</param>
+        /// <param name="FontColor">日志颜色</param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_SendLog([Description("日志类型（自定义）")] string Type, [Description("日志内容")] string Msg,
+            [Description("日志颜色")] int FontColor, [Description("")] int AuthCode)
+            => NativeMethods.Api_SendLog(Type, Msg, FontColor, AuthCode);
+
+        /// <summary>
+        /// //修改好友备注
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="Name"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_SetFriendName([Description("")] string QQID, [Description("")] string Name,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_SetFriendName(QQID, Name, AuthCode);
+
+        /// <summary>
+        /// //删除好友
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_DeleteFriend([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_DeleteFriend(QQID, AuthCode);
+
+        /// <summary>
+        /// //主动添加群
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="附加信息"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_AddGroup([Description("")] string GroupID, [Description("")] string 附加信息,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_AddGroup(GroupID, 附加信息, AuthCode);
+
+        /// <summary>
+        /// //主动添加好友
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="Info"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_AddFriend([Description("")] string QQID, [Description("")] string Info,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_AddFriend(QQID, Info, AuthCode);
+
+        /// <summary>
+        /// //返回卡片点歌JSON代码
+        /// </summary>
+        /// <param name="SongID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_JsonMusic([Description("")] string SongID, [Description("")] int AuthCode)
+            => NativeMethods.Api_JsonMusic(SongID, AuthCode);
+
+        /// <summary>
+        /// //取得群内成员的名片
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetGroupCard([Description("")] string GroupID, [Description("")] string QQID,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_GetGroupCard(GroupID, QQID, AuthCode);
+
+        /// <summary>
+        /// //取指定QQ的昵称
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetNick([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetNick(QQID, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetGroupName([Description("")] string GroupID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetGroupName(GroupID, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetSoftVersion([Description("")] int AuthCode)
+            => NativeMethods.Api_GetSoftVersion(AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetGroupIntroduce([Description("")] string GroupID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetGroupIntroduce(GroupID, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetGroupOwner([Description("")] string GroupID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetGroupOwner(GroupID, AuthCode);
+
+        /// <summary>
+        /// //修改群成员的名片
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="QQID"></param>
+        /// <param name="NewCard"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_SetGroupCard([Description("")] string GroupID, [Description("")] string QQID,
+            [Description("")] string NewCard, [Description("")] int AuthCode)
+            => NativeMethods.Api_SetGroupCard(GroupID, QQID, NewCard, AuthCode);
+
+        /// <summary>
+        /// //取得某个QQ的名片赞数量
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetPraiseNum([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetPraiseNum(QQID, AuthCode);
+
+        /// <summary>
+        /// //取得某个QQ的等级
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        int IQqLightApi.Api_GetQQLevel([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetQQLevel(QQID, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="NewNick"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_SetNick([Description("")] string NewNick, [Description("")] int AuthCode)
+            => NativeMethods.Api_SetNick(NewNick, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="URL"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_Taotaodolike([Description("")] string QQID, [Description("")] string URL,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_Taotaodolike(QQID, URL, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="URL"></param>
+        /// <param name="Content"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_Taotaofeeds([Description("")] string QQID, [Description("")] string URL,
+            [Description("")] string Content, [Description("")] int AuthCode)
+            => NativeMethods.Api_Taotaofeeds(QQID, URL, Content, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        int IQqLightApi.Api_GetQQAge([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetQQAge(QQID, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        int IQqLightApi.Api_GetQQSex([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetQQSex(QQID, AuthCode);
+
+        /// <summary>
+        /// //以JSON形式取得好友列表
+        /// </summary>
+        /// <param name="Cache"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetFriendList([Description("")] bool Cache, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetFriendList(Cache, AuthCode);
+
+        /// <summary>
+        /// //以JSON形式取得群列表
+        /// </summary>
+        /// <param name="Cache"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetGroupList([Description("")] bool Cache, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetGroupList(Cache, AuthCode);
+
+        /// <summary>
+        /// //以JSON形式取得群成员列表
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="Cache"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetGroupMemberList([Description("")] string GroupID, [Description("")] bool Cache,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_GetGroupMemberList(GroupID, Cache, AuthCode);
+
+        /// <summary>
+        /// //以JSON形式取得某QQ个人信息
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetQQInfo([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetQQInfo(QQID, AuthCode);
+
+        /// <summary>
+        /// //以JSON形式取得某群信息
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetGroupInfo([Description("")] string GroupID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetGroupInfo(GroupID, AuthCode);
+
+        /// <summary>
+        /// //撤回自身消息 发出消息不可以秒撤回，腾讯限制，1~2s后才可撤回
+        /// </summary>
+        /// <param name="Type">1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息</param>
+        /// <param name="GroupID">撤回群消息、群临时消息、讨论组消息、讨论组临时消息必须填写，其余情况可留空</param>
+        /// <param name="QQID">撤回好友消息、群临时消息、讨论组临时消息、QQ临时消息必须填写，其余情况可留空</param>
+        /// <param name="MsgID">撤回的消息ID，机器人发送消息会返回自身的消息ID</param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_DeleteMsg([Description("1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息")]
+            int Type, [Description("撤回群消息、群临时消息、讨论组消息、讨论组临时消息必须填写，其余情况可留空")]
+            string GroupID, [Description("撤回好友消息、群临时消息、讨论组临时消息、QQ临时消息必须填写，其余情况可留空")]
+            string QQID, [Description("撤回的消息ID，机器人发送消息会返回自身的消息ID")]
+            string MsgID, [Description("")] int AuthCode)
+            => NativeMethods.Api_DeleteMsg(Type, GroupID, QQID, MsgID, AuthCode);
+
+        /// <summary>
+        /// //改变QQ在线状态
+        /// </summary>
+        /// <param name="Type">1.我在线上 2.Q我吧 3.离开 4.忙碌 5.请勿打扰 6.隐身</param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_SetQQState([Description("1.我在线上 2.Q我吧 3.离开 4.忙碌 5.请勿打扰 6.隐身")]
+            int Type, [Description("")] int AuthCode)
+            => NativeMethods.Api_SetQQState(Type, AuthCode);
+
+        /// <summary>
+        /// //邀请好友入群
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        void IQqLightApi.Api_InviteFriend([Description("")] string GroupID, [Description("")] string QQID,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_InviteFriend(GroupID, QQID, AuthCode);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="QQID"></param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_GetQQInfo_v2([Description("")] string QQID, [Description("")] int AuthCode)
+            => NativeMethods.Api_GetQQInfo_v2(QQID, AuthCode);
+
+        /// <summary>
+        /// //取消COM库
+        /// </summary>
+        /// <returns></returns>
+        void IQqLightApi.CoUninitialize()
+            => NativeMethods.CoUninitialize();
+
+        /// <summary>
+        /// //初始化COM库
+        /// </summary>
+        /// <param name="pvReserved"></param>
+        /// <returns></returns>
+        void IQqLightApi.CoInitialize([Description("")] int pvReserved)
+            => NativeMethods.CoInitialize(pvReserved);
+
+        /// <summary>
+        /// //上传图片，获得图片GUID，
+        /// </summary>
+        /// <param name="Type">1.私聊图片  2.群聊图片</param>
+        /// <param name="对象">私聊图片填写QQID，群聊/讨论组图片填写群号讨论组号</param>
+        /// <param name="Bin">图片的Hex流</param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_UpLoadPic([Description("1.私聊图片  2.群聊图片")] int Type,
+            [Description("私聊图片填写QQID，群聊/讨论组图片填写群号讨论组号")]
+            string 对象, [Description("图片的Hex流")] string Bin, [Description("")] int AuthCode)
+            => NativeMethods.Api_UpLoadPic(Type, 对象, Bin, AuthCode);
+
+        /// <summary>
+        /// //设置插件状态，开启或关闭
+        /// </summary>
+        /// <param name="State">真:启用自身  假:关闭自身</param>
+        /// <param name="AuthCode"></param>
+        /// <returns></returns>
+        string IQqLightApi.Api_SetPluginState([Description("真:启用自身  假:关闭自身")] bool State,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_SetPluginState(State, AuthCode);
+
+        /// <summary>
+        /// 
         /// </summary>
         /// <param name="群号"></param>
-        /// <param name="QQ号"></param>
+        /// <param name="文件GUID"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        string IQqLightApi.Api_GetGroupCard(string 群号, string QQ号)
-            => NativeMethods.Api_GetGroupCard(群号, QQ号, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_DeleteFile([Description("")] string 群号, [Description("")] string 文件GUID,
+            [Description("")] int AuthCode)
+            => NativeMethods.Api_DeleteFile(群号, 文件GUID, AuthCode);
 
         /// <summary>
-        /// 取得某个QQ的昵称
+        /// 
         /// </summary>
-        /// <param name="QQ号"></param>
+        /// <param name="来源对象"></param>
+        /// <param name="转发群号"></param>
+        /// <param name="文件GUID"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        string IQqLightApi.Api_GetNick(string QQ号)
-            => NativeMethods.Api_GetNick(QQ号, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_RepeatFile([Description("")] string 来源对象, [Description("")] string 转发群号,
+            [Description("")] string 文件GUID, [Description("")] int AuthCode)
+            => NativeMethods.Api_RepeatFile(来源对象, 转发群号, 文件GUID, AuthCode);
 
         /// <summary>
-        /// 修改群内成员的名片
+        /// 
         /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="QQ号"></param>
-        /// <param name="新名片"></param>
+        /// <param name="AuthCode"></param>
         /// <returns></returns>
-        void IQqLightApi.Api_SetGroupCard(string 群号, string QQ号, string 新名片)
-            => NativeMethods.Api_SetGroupCard(群号, QQ号, 新名片, _qqLightAuthCodeContainer.AuthCode);
+        void IQqLightApi.Api_ClearOffLineFile([Description("")] int AuthCode)
+            => NativeMethods.Api_ClearOffLineFile(AuthCode);
 
         /// <summary>
-        /// 取得某个QQ的名片赞数量
+        /// 
         /// </summary>
-        /// <param name="QQ号"></param>
+        /// <param name="CodePage"></param>
+        /// <param name="dwFlags"></param>
+        /// <param name="lpWideCharStr">址</param>
+        /// <param name="cchWideChar"></param>
+        /// <param name="lpMultiByteStr">址</param>
+        /// <param name="cchMultiByte"></param>
+        /// <param name="lpDefaultChar"></param>
+        /// <param name="lpUsedDefaultChar"></param>
         /// <returns></returns>
-        string IQqLightApi.Api_GetPraiseNum(string QQ号)
-            => NativeMethods.Api_GetPraiseNum(QQ号, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        /// 以JSON形式取得好友列表
-        /// </summary>
-        /// <returns></returns>
-        string IQqLightApi.Api_GetFriendList()
-            => NativeMethods.Api_GetFriendList(_qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        /// 以JSON形式取得群列表
-        /// </summary>
-        /// <returns></returns>
-        string IQqLightApi.Api_GetGroupList()
-            => NativeMethods.Api_GetGroupList(_qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        /// 以JSON形式取得群成员列表
-        /// </summary>
-        /// <param name="群号"></param>
-        /// <returns></returns>
-        string IQqLightApi.Api_GetGroupMemberList(string 群号)
-            => NativeMethods.Api_GetGroupMemberList(群号, _qqLightAuthCodeContainer.AuthCode);
-
-        /// <summary>
-        /// 改变QQ在线状态
-        /// </summary>
-        /// <param name="类型">1.我在线上 2.Q我吧 3.离开 4.忙碌 5.请勿打扰 6.隐身</param>
-        /// <returns></returns>
-        string IQqLightApi.Api_SetQQState(int 类型)
-            => NativeMethods.Api_SetQQState(类型, _qqLightAuthCodeContainer.AuthCode);
+        int IQqLightApi.WideCharToMultiByte([Description("")] int CodePage, [Description("")] int dwFlags,
+            [Description("址")] byte[] lpWideCharStr, [Description("")] int cchWideChar,
+            [Description("址")] string lpMultiByteStr, [Description("")] int cchMultiByte,
+            [Description("")] int lpDefaultChar, [Description("")] int lpUsedDefaultChar)
+            => NativeMethods.WideCharToMultiByte(CodePage, dwFlags, lpWideCharStr, cchWideChar, lpMultiByteStr,
+                cchMultiByte, lpDefaultChar, lpUsedDefaultChar);
 
         private static class NativeMethods
         {
-            public const string DllPath = @"bin\message.dll";
-            [DllImport(DllPath)]
-            public static extern int Api_SendPraise(string QQ号, string AuthCode);
+            /// <summary>
+            /// //给QQ点名片赞，PCQQ点赞不稳定，容易失效
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SendPraise([Description("")] string QQID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SendShake(string QQ号, string AuthCode);
+            /// <summary>
+            /// //抖动好友窗口
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SendShake([Description("")] string QQID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_Getbkn(string AuthCode);
+            /// <summary>
+            /// //取得网页操作时需要用到的bkn/Gtk
+            /// </summary>
+            /// <param name="Cookies"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_Getbkn([Description("")] string Cookies, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_QuitGroup(string 群号, string AuthCode);
+            /// <summary>
+            /// //取得网页操作时需要用到的bkn/Gtk
+            /// </summary>
+            /// <param name="Cookies"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_Getbkn_Long([Description("")] string Cookies,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_QuitDiscussGroup(string 讨论组号, string AuthCode);
+            /// <summary>
+            /// //退出群
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_QuitGroup([Description("")] string GroupID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SetSignature(string 个性签名, string AuthCode);
+            /// <summary>
+            /// //退出讨论组
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_QuitDiscussGroup([Description("")] string GroupID,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SetDiscussName(string 讨论组号, string 名称, string AuthCode);
+            /// <summary>
+            /// //修改个性签名
+            /// </summary>
+            /// <param name="Signature"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetSignature([Description("")] string Signature,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_BanGroup(string 群号, bool 是否全群禁言, string AuthCode);
+            /// <summary>
+            /// //修改讨论组名称
+            /// </summary>
+            /// <param name="DiscussGroupID"></param>
+            /// <param name="Name"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetDiscussName([Description("")] string DiscussGroupID,
+                [Description("")] string Name, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_RemoveGroup(string 群号, string AuthCode);
+            /// <summary>
+            /// //修改群名称
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="Name"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetGroupName([Description("")] string GroupID, [Description("")] string Name,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SetManager(string 群号, string QQ号, bool 是否设置为管理员, string AuthCode);
+            /// <summary>
+            /// //设置全群禁言
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="IsBanGroup">真 开启全群禁言 假 关闭全群禁言</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_BanGroup([Description("")] string GroupID,
+                [Description("真 开启全群禁言 假 关闭全群禁言")] bool IsBanGroup, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_Ban(string 群号, string QQ, int 禁言时长, string AuthCode);
+            /// <summary>
+            /// //设置管理员权限
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="QQID"></param>
+            /// <param name="IsManager">真,设置  假,取消</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetManager([Description("")] string GroupID, [Description("")] string QQID,
+                [Description("真,设置  假,取消")] bool IsManager, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SetAnony(string 群号, bool 是否允许匿名聊天, string AuthCode);
+            /// <summary>
+            /// //禁言群成员
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="QQ"></param>
+            /// <param name="time">单位:秒  0为解除禁言</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_Ban([Description("")] string GroupID, [Description("")] string QQ,
+                [Description("单位:秒  0为解除禁言")] int time, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_RemoveMember(string 群号, string QQ号, bool 是否不再接收加群申请, string AuthCode);
+            /// <summary>
+            /// //修改匿名权限
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="IsSetAnony">真 允许匿名  假 禁止匿名</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetAnony([Description("")] string GroupID,
+                [Description("真 允许匿名  假 禁止匿名")] bool IsSetAnony, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetCookies(string AuthCode);
+            /// <summary>
+            /// //踢出群成员
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="QQID"></param>
+            /// <param name="IsBan">不再接受此人加群</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_RemoveMember([Description("")] string GroupID, [Description("")] string QQID,
+                [Description("不再接受此人加群")] bool IsBan, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetClientKey(string AuthCode);
+            /// <summary>
+            /// //解散群
+            /// </summary>
+            /// <param name="GroupID">群号</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_RemoveGroup([Description("群号")] string GroupID,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetLoginQQ(string AuthCode);
+            /// <summary>
+            /// //取得操作网页所需要的Cookies
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetCookies([Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern bool Api_GetPluginState(string AuthCode);
+            /// <summary>
+            /// //取得QQ空间Token
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetQzoneToken([Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetPath(string AuthCode);
+            /// <summary>
+            /// //取得QQ空间Cookies
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetQzoneCookies([Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern void Api_SendMsg(int 类型, string 群组, string QQ号, string 内容, string AuthCode);
+            /// <summary>
+            /// //发表说说
+            /// </summary>
+            /// <param name="Str"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_SendTaotao([Description("")] string Str, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SetGroupAdd(string 群号, string QQ号, string Seq, int 操作方式, string 拒绝理由, string AuthCode);
+            /// <summary>
+            /// //取得所登录的QQ
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetLoginQQ([Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SetFriendAdd(string QQ号, int 操作方式, string 拒绝理由, string AuthCode);
+            /// <summary>
+            /// //框架为插件所创建的插件目录
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetPath([Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SendLog(string 类型, string 内容, int 字体颜色, string AuthCode);
+            /// <summary>
+            /// //置插件错误管理
+            /// </summary>
+            /// <param name="Code"></param>
+            /// <param name="Str"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_Error([Description("")] string Code, [Description("")] string Str,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SetFriendName(string 好友QQ, string 备注名, string AuthCode);
+            /// <summary>
+            /// //机器人发送消息，返回值为该条消息的ID
+            /// </summary>
+            /// <param name="Type">1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息</param>
+            /// <param name="GroupID"></param>
+            /// <param name="QQID">类型为2，4时可留空</param>
+            /// <param name="Msg"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_SendMsg([Description("1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息")]
+                int Type, [Description("")] string GroupID, [Description("类型为2，4时可留空")] string QQID,
+                [Description("")] string Msg, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_DeleteFriend(string 好友QQ, string AuthCode);
+            /// <summary>
+            /// //处理加群消息
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="QQID"></param>
+            /// <param name="Seq"></param>
+            /// <param name="Type">1.同意 2.拒绝 3.忽略</param>
+            /// <param name="Reason">参数可为空，且为 拒绝 时有效</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetGroupAdd([Description("")] string GroupID, [Description("")] string QQID,
+                [Description("")] string Seq, [Description("1.同意 2.拒绝 3.忽略")] int Type,
+                [Description("参数可为空，且为 拒绝 时有效")] string Reason, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_AddGroup(string 群号, string 附加信息, string AuthCode);
-            [DllImport(DllPath)]
-            public static extern void Api_AddFriend(string 目标QQ, string 附加信息, string AuthCode);
-            [DllImport(DllPath)]
-            public static extern string Api_163Music(string 歌曲ID, string AuthCode);
+            /// <summary>
+            /// //处理加好友消息
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="Type">1.同意 2.拒绝 3.忽略</param>
+            /// <param name="Reason">参数可为空，且为 拒绝 时有效</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetFriendAdd([Description("")] string QQID,
+                [Description("1.同意 2.拒绝 3.忽略")] int Type, [Description("参数可为空，且为 拒绝 时有效")] string Reason,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_QQMusic(string 歌曲ID, string AuthCode);
+            /// <summary>
+            /// //向框架推送一条日志
+            /// </summary>
+            /// <param name="Type">日志类型（自定义）</param>
+            /// <param name="Msg">日志内容</param>
+            /// <param name="FontColor">日志颜色</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SendLog([Description("日志类型（自定义）")] string Type,
+                [Description("日志内容")] string Msg, [Description("日志颜色")] int FontColor, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_JsonMusic(string 歌曲ID, string AuthCode);
+            /// <summary>
+            /// //修改好友备注
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="Name"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetFriendName([Description("")] string QQID, [Description("")] string Name,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_Error(string Code, string Str, string AuthCode);
+            /// <summary>
+            /// //删除好友
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_DeleteFriend([Description("")] string QQID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetGroupCard(string 群号, string QQ号, string AuthCode);
+            /// <summary>
+            /// //主动添加群
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="附加信息"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_AddGroup([Description("")] string GroupID, [Description("")] string 附加信息,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetNick(string QQ号, string AuthCode);
+            /// <summary>
+            /// //主动添加好友
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="Info"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_AddFriend([Description("")] string QQID, [Description("")] string Info,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_SetGroupCard(string 群号, string QQ号, string 新名片, string AuthCode);
+            /// <summary>
+            /// //返回卡片点歌JSON代码
+            /// </summary>
+            /// <param name="SongID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_JsonMusic([Description("")] string SongID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetPraiseNum(string QQ号, string AuthCode);
+            /// <summary>
+            /// //取得群内成员的名片
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetGroupCard([Description("")] string GroupID,
+                [Description("")] string QQID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetFriendList(string AuthCode);
+            /// <summary>
+            /// //取指定QQ的昵称
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetNick([Description("")] string QQID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetGroupList(string AuthCode);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetGroupName([Description("")] string GroupID,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetGroupMemberList(string 群号, string AuthCode);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetSoftVersion([Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetQQInfo(string QQ号, string AuthCode);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetGroupIntroduce([Description("")] string GroupID,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetGroupInfo(string 群号, string AuthCode);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetGroupOwner([Description("")] string GroupID,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_Restart(string AuthCode);
+            /// <summary>
+            /// //修改群成员的名片
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="QQID"></param>
+            /// <param name="NewCard"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetGroupCard([Description("")] string GroupID, [Description("")] string QQID,
+                [Description("")] string NewCard, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_UpdatePlugin(string AuthCode);
+            /// <summary>
+            /// //取得某个QQ的名片赞数量
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetPraiseNum([Description("")] string QQID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern int Api_DeleteMsg(string 群号, string 消息ID, string AuthCode);
+            /// <summary>
+            /// //取得某个QQ的等级
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern int Api_GetQQLevel([Description("")] string QQID, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_SetQQState(int 类型, string AuthCode);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="NewNick"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetNick([Description("")] string NewNick, [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_InviteFriend(string 群号, string 好友QQ, string AuthCode);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="URL"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_Taotaodolike([Description("")] string QQID, [Description("")] string URL,
+                [Description("")] int AuthCode);
 
-            [DllImport(DllPath)]
-            public static extern string Api_GetQQinfo_v2(string QQ号, string AuthCode);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="URL"></param>
+            /// <param name="Content"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_Taotaofeeds([Description("")] string QQID, [Description("")] string URL,
+                [Description("")] string Content, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern int Api_GetQQAge([Description("")] string QQID, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern int Api_GetQQSex([Description("")] string QQID, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //以JSON形式取得好友列表
+            /// </summary>
+            /// <param name="Cache"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetFriendList([Description("")] bool Cache, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //以JSON形式取得群列表
+            /// </summary>
+            /// <param name="Cache"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetGroupList([Description("")] bool Cache, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //以JSON形式取得群成员列表
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="Cache"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetGroupMemberList([Description("")] string GroupID,
+                [Description("")] bool Cache, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //以JSON形式取得某QQ个人信息
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetQQInfo([Description("")] string QQID, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //以JSON形式取得某群信息
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetGroupInfo([Description("")] string GroupID,
+                [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //撤回自身消息 发出消息不可以秒撤回，腾讯限制，1~2s后才可撤回
+            /// </summary>
+            /// <param name="Type">1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息</param>
+            /// <param name="GroupID">撤回群消息、群临时消息、讨论组消息、讨论组临时消息必须填写，其余情况可留空</param>
+            /// <param name="QQID">撤回好友消息、群临时消息、讨论组临时消息、QQ临时消息必须填写，其余情况可留空</param>
+            /// <param name="MsgID">撤回的消息ID，机器人发送消息会返回自身的消息ID</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_DeleteMsg([Description("1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息")]
+                int Type, [Description("撤回群消息、群临时消息、讨论组消息、讨论组临时消息必须填写，其余情况可留空")]
+                string GroupID, [Description("撤回好友消息、群临时消息、讨论组临时消息、QQ临时消息必须填写，其余情况可留空")]
+                string QQID, [Description("撤回的消息ID，机器人发送消息会返回自身的消息ID")]
+                string MsgID, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //改变QQ在线状态
+            /// </summary>
+            /// <param name="Type">1.我在线上 2.Q我吧 3.离开 4.忙碌 5.请勿打扰 6.隐身</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_SetQQState([Description("1.我在线上 2.Q我吧 3.离开 4.忙碌 5.请勿打扰 6.隐身")]
+                int Type, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //邀请好友入群
+            /// </summary>
+            /// <param name="GroupID"></param>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_InviteFriend([Description("")] string GroupID, [Description("")] string QQID,
+                [Description("")] int AuthCode);
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="QQID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_GetQQInfo_v2([Description("")] string QQID, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //取消COM库
+            /// </summary>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void CoUninitialize();
+
+            /// <summary>
+            /// //初始化COM库
+            /// </summary>
+            /// <param name="pvReserved"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void CoInitialize([Description("")] int pvReserved);
+
+            /// <summary>
+            /// //上传图片，获得图片GUID，
+            /// </summary>
+            /// <param name="Type">1.私聊图片  2.群聊图片</param>
+            /// <param name="对象">私聊图片填写QQID，群聊/讨论组图片填写群号讨论组号</param>
+            /// <param name="Bin">图片的Hex流</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_UpLoadPic([Description("1.私聊图片  2.群聊图片")] int Type,
+                [Description("私聊图片填写QQID，群聊/讨论组图片填写群号讨论组号")]
+                string 对象, [Description("图片的Hex流")] string Bin, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// //设置插件状态，开启或关闭
+            /// </summary>
+            /// <param name="State">真:启用自身  假:关闭自身</param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern string Api_SetPluginState([Description("真:启用自身  假:关闭自身")] bool State,
+                [Description("")] int AuthCode);
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="群号"></param>
+            /// <param name="文件GUID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_DeleteFile([Description("")] string 群号, [Description("")] string 文件GUID,
+                [Description("")] int AuthCode);
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="来源对象"></param>
+            /// <param name="转发群号"></param>
+            /// <param name="文件GUID"></param>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_RepeatFile([Description("")] string 来源对象, [Description("")] string 转发群号,
+                [Description("")] string 文件GUID, [Description("")] int AuthCode);
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern void Api_ClearOffLineFile([Description("")] int AuthCode);
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="CodePage"></param>
+            /// <param name="dwFlags"></param>
+            /// <param name="lpWideCharStr">址</param>
+            /// <param name="cchWideChar"></param>
+            /// <param name="lpMultiByteStr">址</param>
+            /// <param name="cchMultiByte"></param>
+            /// <param name="lpDefaultChar"></param>
+            /// <param name="lpUsedDefaultChar"></param>
+            /// <returns></returns>
+            [DllImport("bin/message.dll")]
+            public static extern int WideCharToMultiByte([Description("")] int CodePage, [Description("")] int dwFlags,
+                [Description("址")] byte[] lpWideCharStr, [Description("")] int cchWideChar,
+                [Description("址")] string lpMultiByteStr, [Description("")] int cchMultiByte,
+                [Description("")] int lpDefaultChar, [Description("")] int lpUsedDefaultChar);
         }
     }
 }

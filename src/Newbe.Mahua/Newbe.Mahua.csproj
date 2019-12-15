@@ -33,15 +33,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Autofac" Version="4.9.4" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Update="NativeApi\ICleverQqApi.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-    </Compile>
-    <Compile Update="NativeApi\ICoolQApi.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
       <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
     </Compile>

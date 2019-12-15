@@ -6,15 +6,19 @@ namespace Newbe.Mahua.QQLight.Apis
     public class SendLikeApiMahuaCommandHandler
         : QqLightApiMahuaCommandHandlerBase<SendLikeApiMahuaCommand>
     {
+        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
+
         public SendLikeApiMahuaCommandHandler(
-            IQqLightApi QqLightApi)
+            IQqLightApi QqLightApi,
+            IQqLightAuthCodeContainer qqLightAuthCodeContainer)
             : base(QqLightApi)
         {
+            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
         }
 
         public override void Handle(SendLikeApiMahuaCommand message)
         {
-            QqLightApi.Api_SendPraise(message.ToQq);
+            QqLightApi.Api_SendPraise(message.ToQq, _qqLightAuthCodeContainer.AuthCode);
         }
     }
 }

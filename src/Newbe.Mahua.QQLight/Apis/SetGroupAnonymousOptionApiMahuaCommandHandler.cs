@@ -6,15 +6,19 @@ namespace Newbe.Mahua.QQLight.Apis
     public class SetGroupAnonymousOptionApiMahuaCommandHandler
         : QqLightApiMahuaCommandHandlerBase<SetGroupAnonymousOptionApiMahuaCommand>
     {
+        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
+
         public SetGroupAnonymousOptionApiMahuaCommandHandler(
-            IQqLightApi QqLightApi)
+            IQqLightApi QqLightApi,
+            IQqLightAuthCodeContainer qqLightAuthCodeContainer)
             : base(QqLightApi)
         {
+            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
         }
 
         public override void Handle(SetGroupAnonymousOptionApiMahuaCommand message)
         {
-            QqLightApi.Api_SetAnony(message.ToGroup, message.Enabled);
+            QqLightApi.Api_SetAnony(message.ToGroup, message.Enabled, _qqLightAuthCodeContainer.AuthCode);
         }
     }
 }

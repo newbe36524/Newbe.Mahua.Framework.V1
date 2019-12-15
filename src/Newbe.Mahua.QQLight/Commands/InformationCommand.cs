@@ -1,26 +1,27 @@
 ﻿using Newbe.Mahua.Commands;
 using System;
 using System.Runtime.Serialization;
+using Newbe.Mahua.Logging;
 
 namespace Newbe.Mahua.QQLight.Commands
 {
     [DataContract]
     public class InformationCommand : QqLightCommand<InformationCommandResult>
     {
-        [DataMember]
-        public string AuthCode { get; set; }
+        [DataMember] public int AuthCode { get; set; }
     }
 
     [DataContract]
     public class InformationCommandResult : QqLightCommandResult
     {
-        [DataMember]
-        public string Info { get; set; }
+        [DataMember] public string Info { get; set; }
     }
 
     internal class InformationCommandHandler : ICommandHandler<InformationCommand, InformationCommandResult>
     {
-        private static readonly string SdkVersion = "3";
+        private static readonly ILog Logger = LogProvider.For<InformationCommandHandler>();
+
+        private const string SdkVersion = "1";
         private readonly IPluginInfo _pluginInfo;
         private readonly IQqLightAuthCodeContainer _QqLightAuthCodeContainer;
 
@@ -35,13 +36,9 @@ namespace Newbe.Mahua.QQLight.Commands
         public InformationCommandResult Handle(InformationCommand message)
         {
             _QqLightAuthCodeContainer.AuthCode = message.AuthCode;
-            var info = $"pluginID={_pluginInfo.Id};{Environment.NewLine}" +
-                       $"pluginName={_pluginInfo.Name};{Environment.NewLine}" +
-                       $"pluginBrief={_pluginInfo.Description};{Environment.NewLine}" +
-                       $"pluginVersion={_pluginInfo.Version};{Environment.NewLine}" +
-                       $"pluginSDK={SdkVersion};{Environment.NewLine}" +
-                       $"pluginAuthor={_pluginInfo.Author};{Environment.NewLine}" +
-                       $"pluginWindowsTitle={{_TestMenu1=设置中心}};";
+            var info =
+                $"{{\"plugin_id\":\"{_pluginInfo.Id}\",\"plugin_name\":\"{_pluginInfo.Name}\",\"plugin_author\":\"{_pluginInfo.Author}\",\"plugin_version\":\"{_pluginInfo.Version}\",\"plugin_brief\":\"{_pluginInfo.Description}\",\"plugin_sdk\":\"{SdkVersion}\",\"plugin_menu\":\"true\"}}";
+            Logger.Info("Plugin Info :{info}", info);
             return new InformationCommandResult
             {
                 Info = info

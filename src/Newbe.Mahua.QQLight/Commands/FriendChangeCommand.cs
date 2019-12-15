@@ -7,22 +7,22 @@ using System.Runtime.Serialization;
 namespace Newbe.Mahua.QQLight.Commands
 {
     [DataContract]
-    public class BecomeFriendsCommand : QqLightCommand
+    public class FriendChangeCommand : QqLightCommand
     {
         [DataMember]
         public string Fromqq { get; set; }
     }
 
-    internal class BecomeFriendsCommandHandler : ICommandHandler<BecomeFriendsCommand>
+    internal class FriendChangeCommandHandler : ICommandHandler<FriendChangeCommand>
     {
         private readonly IEnumerable<IFriendAddedMahuaEvent> _friendAddedMahuaEvents;
 
-        public BecomeFriendsCommandHandler(IEnumerable<IFriendAddedMahuaEvent> friendAddedMahuaEvents)
+        public FriendChangeCommandHandler(IEnumerable<IFriendAddedMahuaEvent> friendAddedMahuaEvents)
         {
             _friendAddedMahuaEvents = friendAddedMahuaEvents;
         }
 
-        public void Handle(BecomeFriendsCommand message)
+        public void Handle(FriendChangeCommand message)
         {
             _friendAddedMahuaEvents.Handle(x => x.ProcessFriendsAdded(new FriendAddedMahuaEventContext
             {
