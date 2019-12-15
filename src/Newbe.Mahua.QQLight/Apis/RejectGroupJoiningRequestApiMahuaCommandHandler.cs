@@ -6,10 +6,14 @@ namespace Newbe.Mahua.QQLight.Apis
     public class RejectGroupJoiningRequestApiMahuaCommandHandler
         : QqLightApiMahuaCommandHandlerBase<RejectGroupJoiningRequestApiMahuaCommand>
     {
+        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
+
         public RejectGroupJoiningRequestApiMahuaCommandHandler(
-            IQqLightApi QqLightApi)
+            IQqLightApi QqLightApi,
+            IQqLightAuthCodeContainer qqLightAuthCodeContainer)
             : base(QqLightApi)
         {
+            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
         }
 
         public override void Handle(RejectGroupJoiningRequestApiMahuaCommand message)
@@ -19,7 +23,8 @@ namespace Newbe.Mahua.QQLight.Apis
                 message.FromQq,
                 message.GroupJoiningRequestId,
                 QqLightConstants.Operation拒绝,
-                null);
+                null,
+                _qqLightAuthCodeContainer.AuthCode);
         }
     }
 }

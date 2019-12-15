@@ -6,15 +6,20 @@ namespace Newbe.Mahua.QQLight.Apis
     public class GetLoginNickApiMahuaCommandHandler
         : QqLightApiMahuaCommandHandlerBase<GetLoginNickApiMahuaCommand, GetLoginNickApiMahuaCommandResult>
     {
+        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
+
         public GetLoginNickApiMahuaCommandHandler(
-            IQqLightApi QqLightApi)
+            IQqLightApi QqLightApi,
+            IQqLightAuthCodeContainer qqLightAuthCodeContainer)
             : base(QqLightApi)
         {
+            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
         }
 
         public override GetLoginNickApiMahuaCommandResult Handle(GetLoginNickApiMahuaCommand message)
         {
-            var nick = QqLightApi.Api_GetNick(QqLightApi.Api_GetLoginQQ());
+            var qq = QqLightApi.Api_GetLoginQQ(_qqLightAuthCodeContainer.AuthCode);
+            var nick = QqLightApi.Api_GetNick(qq, _qqLightAuthCodeContainer.AuthCode);
             var re = new GetLoginNickApiMahuaCommandResult
             {
                 Nick = nick

@@ -6,15 +6,19 @@ namespace Newbe.Mahua.QQLight.Apis
     public class RemoveBanGroupMemberApiMahuaCommandHandler
         : QqLightApiMahuaCommandHandlerBase<RemoveBanGroupMemberApiMahuaCommand>
     {
+        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
+
         public RemoveBanGroupMemberApiMahuaCommandHandler(
-            IQqLightApi QqLightApi)
+            IQqLightApi QqLightApi,
+            IQqLightAuthCodeContainer qqLightAuthCodeContainer)
             : base(QqLightApi)
         {
+            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
         }
 
         public override void Handle(RemoveBanGroupMemberApiMahuaCommand message)
         {
-            QqLightApi.Api_Ban(message.ToGroup, message.ToQq, 0);
+            QqLightApi.Api_Ban(message.ToGroup, message.ToQq, 0, _qqLightAuthCodeContainer.AuthCode);
         }
     }
 }

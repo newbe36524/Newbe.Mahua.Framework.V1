@@ -10,15 +10,18 @@ namespace Newbe.Mahua.QQLight.Messages
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IQqLightMessage _message;
+        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
         private readonly IQqLightApi _qqLightApi;
 
         public PrivateMessageDone(
             IMahuaApi mahuaApi,
             IQqLightMessage message,
+            IQqLightAuthCodeContainer qqLightAuthCodeContainer,
             IQqLightApi qqLightApi)
         {
             _mahuaApi = mahuaApi;
             _message = message;
+            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
             _qqLightApi = qqLightApi;
         }
 
@@ -26,7 +29,7 @@ namespace Newbe.Mahua.QQLight.Messages
         {
             if (_message.Shake)
             {
-                _qqLightApi.Api_SendShake(_message.Target);
+                _qqLightApi.Api_SendShake(_message.Target, _qqLightAuthCodeContainer.AuthCode);
             }
             else
             {
@@ -38,7 +41,7 @@ namespace Newbe.Mahua.QQLight.Messages
         {
             if (_message.Shake)
             {
-                _qqLightApi.Api_SendShake(_message.Target);
+                _qqLightApi.Api_SendShake(_message.Target, _qqLightAuthCodeContainer.AuthCode);
             }
             else
             {

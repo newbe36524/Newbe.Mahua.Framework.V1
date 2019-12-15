@@ -6,15 +6,20 @@ namespace Newbe.Mahua.QQLight.Apis
     public class GetGroupMemebersApiMahuaCommandHandler
         : QqLightApiMahuaCommandHandlerBase<GetGroupMemebersApiMahuaCommand, GetGroupMemebersApiMahuaCommandResult>
     {
+        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
+
         public GetGroupMemebersApiMahuaCommandHandler(
-            IQqLightApi QqLightApi)
+            IQqLightApi QqLightApi, IQqLightAuthCodeContainer qqLightAuthCodeContainer)
             : base(QqLightApi)
         {
+            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
         }
 
         public override GetGroupMemebersApiMahuaCommandResult Handle(GetGroupMemebersApiMahuaCommand message)
         {
-            var groupMemebersString = QqLightApi.Api_GetGroupMemberList(message.ToGroup);
+            var groupMemebersString = QqLightApi.Api_GetGroupMemberList(message.ToGroup,
+                false,
+                _qqLightAuthCodeContainer.AuthCode);
             var re = new GetGroupMemebersApiMahuaCommandResult
             {
                 GroupMemebersString = groupMemebersString

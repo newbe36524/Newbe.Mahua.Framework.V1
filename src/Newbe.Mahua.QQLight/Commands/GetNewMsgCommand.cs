@@ -21,20 +21,15 @@ namespace Newbe.Mahua.QQLight.Commands
     [DataContract]
     public class GetNewMsgCommand : QqLightCommand
     {
-        [DataMember]
-        public FromMessageType Type { get; set; }
+        [DataMember] public FromMessageType Type { get; set; }
 
-        [DataMember]
-        public string Fromgroup { get; set; }
+        [DataMember] public string Fromgroup { get; set; }
 
-        [DataMember]
-        public string Fromqq { get; set; }
+        [DataMember] public string Fromqq { get; set; }
 
-        [DataMember]
-        public string Message { get; set; }
+        [DataMember] public string Message { get; set; }
 
-        [DataMember]
-        public string MessageId { get; set; }
+        [DataMember] public string MessageId { get; set; }
     }
 
     internal class GetNewMsgCommandHandler : ICommandHandler<GetNewMsgCommand>
@@ -87,9 +82,10 @@ namespace Newbe.Mahua.QQLight.Commands
                 // todo
                 return;
             }
+
+            var token = _factory((int) message.Type, message.Fromgroup, message.Fromqq, message.MessageId);
             if (message.Type == FromMessageType.群消息)
             {
-                var token = _factory(message.Fromgroup,message.MessageId);
                 _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(new GroupMessageReceivedContext
                 {
                     Message = message.Message,
@@ -100,6 +96,7 @@ namespace Newbe.Mahua.QQLight.Commands
                 }));
                 return;
             }
+
             if (message.Type == FromMessageType.讨论组消息)
             {
                 _discussMessageReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessageReceived(
@@ -109,9 +106,11 @@ namespace Newbe.Mahua.QQLight.Commands
                         FromQq = commandFromqq,
                         FromDiscuss = message.Fromgroup,
                         SendTime = sendTime,
+                        MessageCancelToken = token,
                     }));
                 return;
             }
+
             var type = ConvertType(message.Type);
             _privateMessageReceivedMahuaEvents.Handle(x =>
             {
@@ -153,6 +152,7 @@ namespace Newbe.Mahua.QQLight.Commands
                             Message = message.Message,
                             FromGroup = message.Fromgroup,
                             FromQq = commandFromqq,
+                            MessageCancelToken = token,
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
@@ -163,6 +163,7 @@ namespace Newbe.Mahua.QQLight.Commands
                             Message = message.Message,
                             FromDiscuss = message.Fromgroup,
                             FromQq = commandFromqq,
+                            MessageCancelToken = token,
                         }));
                     break;
                 default:

@@ -6,15 +6,20 @@ namespace Newbe.Mahua.QQLight.Apis
     public class GetBknApiMahuaCommandHandler
         : QqLightApiMahuaCommandHandlerBase<GetBknApiMahuaCommand, GetBknApiMahuaCommandResult>
     {
+        private readonly IQqLightAuthCodeContainer _qqLightAuthCodeContainer;
+
         public GetBknApiMahuaCommandHandler(
-            IQqLightApi QqLightApi)
+            IQqLightApi QqLightApi,
+            IQqLightAuthCodeContainer qqLightAuthCodeContainer)
             : base(QqLightApi)
         {
+            _qqLightAuthCodeContainer = qqLightAuthCodeContainer;
         }
 
         public override GetBknApiMahuaCommandResult Handle(GetBknApiMahuaCommand message)
         {
-            var bkn = QqLightApi.Api_Getbkn();
+            var cookie = QqLightApi.Api_GetCookies(_qqLightAuthCodeContainer.AuthCode);
+            var bkn = QqLightApi.Api_Getbkn(cookie, _qqLightAuthCodeContainer.AuthCode);
             var re = new GetBknApiMahuaCommandResult
             {
                 Bkn = bkn

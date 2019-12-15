@@ -15,7 +15,9 @@ namespace Newbe.Mahua.CQP.Apis
 
         public override GetCookiesApiMahuaCommandResult Handle(GetCookiesApiMahuaCommand message)
         {
-            var cqGetCookies = CoolQApi.CQ_getCookies(AuthCode);
+            // TODO doamin
+            const string domain = ".qq.com";
+            var cqGetCookies = CoolQApi.CQ_getCookiesV2(AuthCode, domain);
             return new GetCookiesApiMahuaCommandResult
             {
                 Cookies = cqGetCookies
