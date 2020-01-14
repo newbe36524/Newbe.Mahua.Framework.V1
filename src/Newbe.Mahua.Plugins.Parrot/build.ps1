@@ -11,17 +11,17 @@ properties {
 
 $pkgNames = @{
     "platform"  = @(
-    "Newbe.Mahua.CQP",
-    "Newbe.Mahua.MPQ",
-    "Newbe.Mahua.QQLight"
+        "Newbe.Mahua.CQP",
+        "Newbe.Mahua.MPQ",
+        "Newbe.Mahua.QQLight"
     )
     "framework" = @(
-    "Newbe.Mahua",
-    "Newbe.Mahua.PluginLoader"
+        "Newbe.Mahua",
+        "Newbe.Mahua.PluginLoader"
     )
     "ext"       = @(
-    "Newbe.Mahua.Administration",
-    "Newbe.Mahua.CQP.ApiExtensions"
+        "Newbe.Mahua.Administration",
+        "Newbe.Mahua.CQP.ApiExtensions"
     )
 }
 
@@ -36,7 +36,7 @@ function Get-MahuaPackage {
     param (
         [string]$id
     )
-    $re = ($installedAll | Where-Object { $_.id -eq $id})
+    $re = ($installedAll | Where-Object { $_.id -eq $id })
     $re
     return $re[0]
 }
@@ -121,7 +121,12 @@ Task Build -depends Nuget -Description "编译" {
 function WriteCqpJsonFile ($targetFilePath) {
     # 加载所有的DLL
     Get-ChildItem  "$releaseBase\$configuration\*" *.dll | ForEach-Object {
-        [void][reflection.assembly]::LoadFile($_)
+        try {
+            [void][reflection.assembly]::LoadFile($_)
+        }
+        catch {
+            
+        }
     }
 
     # 创建实例
@@ -152,7 +157,7 @@ function WriteCqpJsonFile ($targetFilePath) {
 }
 
 Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
-    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.CQP"} | ForEach-Object {
+    $InstalledPlatforms | Where-Object { $_.id -eq "Newbe.Mahua.CQP" } | ForEach-Object {
         Exec {
             # CQP 要求 dll 名称和 appid 要相同，并且为小写
             $cqpDevPluginDirName = $pluginName.ToLowerInvariant()
@@ -177,7 +182,7 @@ Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
 }
 
 Task PackQQLight -depends DonwloadPackages, Build -Description "QQLight打包" {
-    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.QQLight"}  | ForEach-Object {
+    $InstalledPlatforms | Where-Object { $_.id -eq "Newbe.Mahua.QQLight" } | ForEach-Object {
         Exec {
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\QQLight"
@@ -199,7 +204,7 @@ Task PackQQLight -depends DonwloadPackages, Build -Description "QQLight打包" {
 }
 
 Task PackMPQ -depends DonwloadPackages, Build -Description "MPQ打包" {
-    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.MPQ"}| ForEach-Object {
+    $InstalledPlatforms | Where-Object { $_.id -eq "Newbe.Mahua.MPQ" } | ForEach-Object {
         Exec {
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\MPQ"
