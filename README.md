@@ -47,7 +47,7 @@ QQ协议实现也有不少，QQ机器人平台有不少，这些平台大多具�
 
 ## 立马开始
 
-点击查看[帮助文档](https://d.oo14.com/08ZI?v=v1)开始编写第一个QQ机器人。
+[点击查看帮助文档开始编写第一个QQ机器人。](https://d.oo14.com/08ZI?v=v1)
 
 ### 快乐实践
 
@@ -69,6 +69,11 @@ i春秋社区机器人自2018年02月04日开始服务于i春秋社区，每日�
  
 程序喵群机器人
 
+#### [QQ群签到机器人](https://github.com/Jimesarrice/Gemeral_QQSignin_Framework)
+
+实现了基础的QQ群签到的功能，数据库可以存储每个用户的签到天数，积分，最后签到日期，以此来配合一切其他群管理模块，用户每天可以签到一次，随机获取积分，积分可配合其他功能进行消费，每天对每个已签到用户生成一个近似随机的人品值以供娱乐，签到时间不同对每个用户划分等级，以显示用户活跃程度。
+通过二次开发可以扩展很多玩法。
+
 ## 版本
 
 | 包                            | 版本                                                                                                                                                                                          | 下载量                                                                                                                                                                                 | 开发版                                                                                                                                                                                      | 说明                         |
@@ -81,100 +86,13 @@ i春秋社区机器人自2018年02月04日开始服务于i春秋社区，每日�
 | Newbe.Mahua.QQLight           | [![Newbe.Mahua.QQLight.Version](https://img.shields.io/nuget/v/Newbe.Mahua.QQLight.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight/)                               | [![Newbe.Mahua.QQLight.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.QQLight.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight/)                      | [![Newbe.Mahua.QQLight.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.QQLight.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight/)                      | QQLight实现                  |
 | Newbe.Mahua.MPQ               | [![Newbe.Mahua.MPQ.Version](https://img.shields.io/nuget/v/Newbe.Mahua.MPQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                                           | [![Newbe.Mahua.MPQ.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.MPQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                                  | [![Newbe.Mahua.MPQ.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.MPQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                                  | MPQ（MyPcQQ）实现            |
 | Newbe.Mahua.CQP.ApiExtensions | [![Newbe.Mahua.CQP.ApiExtensions.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CQP.ApiExtensions.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.ApiExtensions/) | [![Newbe.Mahua.CQP.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CQP.ApiExtensions.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.ApiExtensions/)      | [![Newbe.Mahua.CQP.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CQP.ApiExtensions.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.ApiExtensions/)      | 对CQP进行API扩展             |
-| Newbe.Mahua.Amanda            | [![Newbe.Mahua.Amanda.Version](https://img.shields.io/nuget/v/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                                  | [![Newbe.Mahua.Amanda.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                         | [![Newbe.Mahua.Amanda.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                         | Amanda实现（已经停止维护）   |
-| Newbe.Mahua.CleverQQ          | [![Newbe.Mahua.CleverQQ.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CleverQQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ/)                            | [![Newbe.Mahua.CleverQQ.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CleverQQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ/)                   | [![Newbe.Mahua.CleverQQ.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CleverQQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ/)                   | CleverQQ实现（已经停止维护） |
+| ~~Newbe.Mahua.Amanda~~        | [![Newbe.Mahua.Amanda.Version](https://img.shields.io/nuget/v/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                                  | [![Newbe.Mahua.Amanda.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                         | [![Newbe.Mahua.Amanda.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                         | Amanda实现（已经停止维护）   |
+| ~~Newbe.Mahua.CleverQQ~~      | [![Newbe.Mahua.CleverQQ.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CleverQQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ/)                            | [![Newbe.Mahua.CleverQQ.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CleverQQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ/)                   | [![Newbe.Mahua.CleverQQ.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CleverQQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ/)                   | CleverQQ实现（已经停止维护） |
 
+## 相关链接
 
-## MahuaEvent支持列表
-
-| 事件                                         | 说明                             | CQP | MPQ | QQLight |
-| -------------------------------------------- | -------------------------------- | --- | --- | ------- |
-| IExceptionOccuredMahuaEvent                  | 运行出现异常事件                 | √   | √   | √       |
-| IDiscussMessageReceivedMahuaEvent            | 讨论组消息接受事件               | √   | √   | √       |
-| IFriendAddedMahuaEvent                       | 已添加新好友事件                 | √   | √   | √       |
-| IFriendAddingRequestMahuaEvent               | 好友申请接受事件                 | √   | √   | √       |
-| IGroupAdminChangedMahuaEvent                 | 群管理员变更事件                 | √   | √   | √       |
-| IGroupAdminDisabledMahuaEvent                | 解除群管理员事件                 | √   | √   | √       |
-| IGroupAdminEnabledMahuaEvent                 | 任命新管理员事件                 | √   | √   | √       |
-| IMahuaMenuClickedMahuaEvent                  | 菜单处理事件                     | √   | √   | √       |
-| IGroupJoiningInvitationReceivedMahuaEvent    | 入群邀请接收事件                 | √   | √   | √       |
-| IGroupJoiningRequestReceivedMahuaEvent       | 入群申请接收事件                 | √   | √   | √       |
-| IGroupMemberChangedMahuaEvent                | 群成员变更事件                   | √   | √   | √       |
-| IGroupMemberDecreasedMahuaEvent              | 群成员减少事件                   | √   | √   | √       |
-| IGroupMemberIncreasedMahuaEvent              | 群成员增多事件                   | √   | √   | √       |
-| IGroupMessageReceivedMahuaEvent              | 群消息接收事件                   | √   | √   | √       |
-| IGroupUploadedMahuaEvent                     | 群文件上传事件                   | √   |     |         |
-| IInitializationMahuaEvent                    | 插件初始化事件                   | √   | √   | √       |
-| IPlatformExitedMahuaEvent                    | 机器人平台退出事件               | √   |     |         |
-| IPluginDisabledMahuaEvent                    | 插件被禁用事件                   | √   | √   | √       |
-| IPluginEnabledMahuaEvent                     | 插件被启用事件                   | √   | √   | √       |
-| IPluginHotUpgradedMahuaEvent                 | 插件热更新成功事件               | √   | √   | √       |
-| IPluginHotUpgradingMahuaEvent                | 开始插件热更新事件               | √   | √   | √       |
-| IPrivateMessageFromDiscussReceivedMahuaEvent | 来自讨论组成员的私聊消息接收事件 | √   |     | √       |
-| IPrivateMessageFromFriendReceivedMahuaEvent  | 来自好友的私聊消息接收事件       | √   | √   | √       |
-| IPrivateMessageFromGroupReceivedMahuaEvent   | 来自群成员的私聊消息接收事件     | √   | √   | √       |
-| IPrivateMessageFromOnlineReceivedMahuaEvent  | 来自在线状态的私聊消息接收事件   | √   | √   | √       |
-| IPrivateMessageReceivedMahuaEvent            | 私聊消息接收事件                 | √   | √   | √       |
-
-## MahuaApi支持列表
-
-标记为`√`表示该平台下支持该API。未标记则表示不支持。
-
-标记为`√(ext)`表示可以安装相应的API扩展包来支持该平台。
-
-| Api                          | 说明                         | Cqp    | Mpq | QqLight |
-| ---------------------------- | ---------------------------- | ------ | --- | ------- |
-| AcceptFriendAddingRequest    | 同意添加好友请求             | √      | √   | √       |
-| AcceptGroupJoiningInvitation | 接受入群邀请                 | √      | √   | √       |
-| AcceptGroupJoiningRequest    | 管理员同意入群申请           | √      | √   | √       |
-| BanFriend                    | 将QQ移入黑名单               |        | √   |         |
-| BanGroupAnonymousMember      | 设置禁言某匿名群员           | √      |     |         |
-| BanGroupMember               | 禁言某群成员                 | √      | √   | √       |
-| CreateDiscuss                | 创建讨论组                   |        | √   |         |
-| DisableGroupAdmin            | 删除群管理员                 | √      |     | √       |
-| DissolveGroup                | 解散群                       | √      | √   | √       |
-| EnableGroupAdmin             | 设置群管理员                 | √      |     | √       |
-| GetBkn                       | 取bkn                        | √      | √   | √       |
-| GetCookies                   | 取Cookies                    | √      | √   | √       |
-| GetDiscusses                 | 获取讨论组列表               |        | √   |         |
-| GetFriends                   | 获取好友列表                 |        | √   | √       |
-| GetGroupMemebers             | 获取群成员列表（返回字符串） | √      | √   | √       |
-| GetGroupMemebersWithModel    | 获取群成员列表               | √      | √   |         |
-| GetGroups                    | 获取群列表（返回字符串）     | √      | √   | √       |
-| GetGroupsWithModel           | 获取群列表                   | √      | √   |         |
-| GetLoginNick                 | 取当前登录QQ昵称             | √      | √   | √       |
-| GetLoginQq                   | 取当前登录QQ                 | √      | √   | √       |
-| JoinGroup                    | 主动加群                     |        | √   | √       |
-| KickDiscussMember            | 踢出讨论组                   |        | √   |         |
-| KickGroupMember              | 移出群成员                   | √      | √   | √       |
-| LeaveDiscuss                 | 退出讨论组                   | √      | √   | √       |
-| LeaveGroup                   | 退出群                       | √      | √   | √       |
-| RejectFriendAddingRequest    | 拒绝添加好友请求             | √      | √   | √       |
-| RejectGroupJoiningInvitation | 拒绝入群邀请                 | √      | √   | √       |
-| RejectGroupJoiningRequest    | 管理员拒绝入群申请           | √      | √   | √       |
-| RemoveBanFriend              | 将QQ移出黑名单               |        | √   |         |
-| RemoveBanGroupMember         | 取消禁言某群成员             | √      | √   | √       |
-| RemoveFriend                 | 删除好友                     |        | √   | √       |
-| SendDiscussJoiningInvitation | 发送讨论组邀请               |        | √   |         |
-| SendDiscussMessage           | 发送讨论组消息               | √      | √   | √       |
-| SendGroupJoiningInvitation   | 发送入群邀请                 |        | √   |         |
-| SendGroupMessage             | 发送群消息                   | √      | √   | √       |
-| SendLike                     | 发送名片赞                   | √      |     | √       |
-| SendPrivateMessage           | 发送私聊消息                 | √      | √   | √       |
-| SetBanAllGroupMembersOption  | 设置全群禁言                 | √      | √   | √       |
-| SetGroupAnonymousOption      | 设置群匿名设置               | √      |     | √       |
-| SetGroupMemberCard           | 设置群成员名片               | √      | √   | √       |
-| SetGroupMemberSpecialTitle   | 设置群成员专属头衔           | √      |     |         |
-| SetNotice                    | 发布群公告                   | √(ext) | √   |         |
-
-### 消息撤回特别说明
-
-标记为`√`表示该平台下支持撤回。
-
-| 功能               | Cqp | Mpq | QqLight |
-| ------------------ | --- | --- | ------- |
-| 撤回自己发送的消息 | √   |     |         |
-| 撤回群成员消息     | √   |     | √       |
+- [支持的事件和API](docs/API.md)
+- [阅读和使用源码](docs/How-To-Use-Source-Code.md)
 
 ## 说在最后面
 
@@ -188,8 +106,6 @@ i春秋社区机器人自2018年02月04日开始服务于i春秋社区，每日�
 
 **最后，但是最重要的，一定要Star一下！**
 
-[借一步说话](http://www.newbe.pro/donate/)
-
 特别感谢 Jetbrain 公司提供的 License 以支持该项目
 
 [![jetbrains](i/jetbrains-variant-3.png)](https://www.jetbrains.com/?from=Newbe.Mahua.Framework)
@@ -199,25 +115,28 @@ i春秋社区机器人自2018年02月04日开始服务于i春秋社区，每日�
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="http://www.newbe.pro"><img src="https://avatars1.githubusercontent.com/u/7685462?v=4" width="100px;" alt="Newbe36524"/><br /><sub><b>Newbe36524</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=newbe36524" title="Documentation">📖</a> <a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=newbe36524" title="Code">💻</a> <a href="#tool-newbe36524" title="Tools">🔧</a> <a href="#blog-newbe36524" title="Blogposts">📝</a> <a href="#example-newbe36524" title="Examples">💡</a></td>
-    <td align="center"><a href="https://traceless.site/"><img src="https://avatars1.githubusercontent.com/u/12078678?v=4" width="100px;" alt="Traceless"/><br /><sub><b>Traceless</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Atraceless0929" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/kotoneme"><img src="https://avatars1.githubusercontent.com/u/43395785?v=4" width="100px;" alt="kotoneme"/><br /><sub><b>kotoneme</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=kotoneme" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/allenxie888"><img src="https://avatars1.githubusercontent.com/u/7455309?v=4" width="100px;" alt="AllenXie"/><br /><sub><b>AllenXie</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=allenxie888" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/bgli100"><img src="https://avatars1.githubusercontent.com/u/7760499?v=4" width="100px;" alt="bgli100"/><br /><sub><b>bgli100</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Abgli100" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/newce36524"><img src="https://avatars1.githubusercontent.com/u/20368567?v=4" width="100px;" alt="Q-Q"/><br /><sub><b>Q-Q</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Anewce36524" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/LollipopGeneral"><img src="https://avatars1.githubusercontent.com/u/45588935?v=4" width="100px;" alt="LollipopGeneral"/><br /><sub><b>LollipopGeneral</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=LollipopGeneral" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.newbe.pro"><img src="https://avatars1.githubusercontent.com/u/7685462?v=4" width="100px;" alt=""/><br /><sub><b>Newbe36524</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=newbe36524" title="Documentation">📖</a> <a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=newbe36524" title="Code">💻</a> <a href="#tool-newbe36524" title="Tools">🔧</a> <a href="#blog-newbe36524" title="Blogposts">📝</a> <a href="#example-newbe36524" title="Examples">💡</a></td>
+    <td align="center"><a href="https://traceless.site/"><img src="https://avatars1.githubusercontent.com/u/12078678?v=4" width="100px;" alt=""/><br /><sub><b>Traceless</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Atraceless0929" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/kotoneme"><img src="https://avatars1.githubusercontent.com/u/43395785?v=4" width="100px;" alt=""/><br /><sub><b>kotoneme</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=kotoneme" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/allenxie888"><img src="https://avatars1.githubusercontent.com/u/7455309?v=4" width="100px;" alt=""/><br /><sub><b>AllenXie</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=allenxie888" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/bgli100"><img src="https://avatars1.githubusercontent.com/u/7760499?v=4" width="100px;" alt=""/><br /><sub><b>bgli100</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Abgli100" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/newce36524"><img src="https://avatars1.githubusercontent.com/u/20368567?v=4" width="100px;" alt=""/><br /><sub><b>Q-Q</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Anewce36524" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/LollipopGeneral"><img src="https://avatars1.githubusercontent.com/u/45588935?v=4" width="100px;" alt=""/><br /><sub><b>LollipopGeneral</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/commits?author=LollipopGeneral" title="Code">💻</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/LabelZhou"><img src="https://avatars2.githubusercontent.com/u/34649549?v=4" width="100px;" alt="LabelZhou"/><br /><sub><b>LabelZhou</b></sub></a><br /><a href="#ideas-LabelZhou" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://www.r4v3zn.com"><img src="https://avatars2.githubusercontent.com/u/18393907?v=4" width="100px;" alt="r4v3zn"/><br /><sub><b>r4v3zn</b></sub></a><br /><a href="#ideas-0nise" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/CinikiC"><img src="https://avatars1.githubusercontent.com/u/41052385?v=4" width="100px;" alt="Ciniki"/><br /><sub><b>Ciniki</b></sub></a><br /><a href="#ideas-CinikiC" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/Jimesarrice"><img src="https://avatars0.githubusercontent.com/u/38239619?v=4" width="100px;" alt="Jimes"/><br /><sub><b>Jimes</b></sub></a><br /><a href="#ideas-Jimesarrice" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/LabelZhou"><img src="https://avatars2.githubusercontent.com/u/34649549?v=4" width="100px;" alt=""/><br /><sub><b>LabelZhou</b></sub></a><br /><a href="#ideas-LabelZhou" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://www.r4v3zn.com"><img src="https://avatars2.githubusercontent.com/u/18393907?v=4" width="100px;" alt=""/><br /><sub><b>r4v3zn</b></sub></a><br /><a href="#ideas-0nise" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/CinikiC"><img src="https://avatars1.githubusercontent.com/u/41052385?v=4" width="100px;" alt=""/><br /><sub><b>Ciniki</b></sub></a><br /><a href="#ideas-CinikiC" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/Jimesarrice"><img src="https://avatars0.githubusercontent.com/u/38239619?v=4" width="100px;" alt=""/><br /><sub><b>Jimes</b></sub></a><br /><a href="#ideas-Jimesarrice" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
