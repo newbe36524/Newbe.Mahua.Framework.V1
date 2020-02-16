@@ -45,7 +45,7 @@ Task NugetPushLocal -depends Pack -Description "推送nuget包到本地" {
 Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
     Get-ChildItem $releaseDir *.nupkg | ForEach-Object {
         Exec {
-            dotnet nuget push "$releaseDir$_" -s https://www.nuget.org/
+            dotnet nuget push "$releaseDir$_" -s https://www.nuget.org/ --skip-duplicate
         }
     }
     Write-Output "构建完毕，当前时间为 $(Get-Date)"
