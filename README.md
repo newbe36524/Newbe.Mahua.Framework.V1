@@ -132,6 +132,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><a href="http://www.r4v3zn.com"><img src="https://avatars2.githubusercontent.com/u/18393907?v=4" width="100px;" alt=""/><br /><sub><b>r4v3zn</b></sub></a><br /><a href="#ideas-0nise" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/CinikiC"><img src="https://avatars1.githubusercontent.com/u/41052385?v=4" width="100px;" alt=""/><br /><sub><b>Ciniki</b></sub></a><br /><a href="#ideas-CinikiC" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/Jimesarrice"><img src="https://avatars0.githubusercontent.com/u/38239619?v=4" width="100px;" alt=""/><br /><sub><b>Jimes</b></sub></a><br /><a href="#ideas-Jimesarrice" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/lv69"><img src="https://avatars2.githubusercontent.com/u/17559911?v=4" width="100px;" alt=""/><br /><sub><b>lv69</b></sub></a><br /><a href="https://github.com/newbe36524/Newbe.Mahua.Framework.V1/issues?q=author%3Alv69" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
