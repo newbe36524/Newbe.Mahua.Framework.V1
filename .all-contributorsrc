@@ -111,6 +111,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "lv69",
+      "name": "lv69",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/17559911?v=4",
+      "profile": "https://github.com/lv69",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
