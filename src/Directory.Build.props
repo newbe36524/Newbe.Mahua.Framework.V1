@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.18.2</VersionPrefix>
+    <VersionPrefix>1.19.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
@@ -11,7 +11,8 @@
     <PackageOutputPath>../build/</PackageOutputPath>
     <NoWarn>1701;1702;1705;1591</NoWarn>
     <WarningsAsErrors>true</WarningsAsErrors>
-    <PackageReleaseNotes>修复打包时可能加载非.Net DLL 导致报错的问题
+    <PackageReleaseNotes>
+    已于 2020 年 8 月 2 日 正式归档，源码将不再更新。
     </PackageReleaseNotes>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>

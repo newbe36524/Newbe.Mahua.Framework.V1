@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Newbe.Mahua.Template</id>
-    <version>1.18.2</version>
+    <version>1.19.0</version>
     <authors>Newbe</authors>
     <owners>Newbe</owners>
     <licenseUrl>https://raw.githubusercontent.com/newbe36524/Newbe.Mahua.Framework.V1/master/LICENSE</licenseUrl>
@@ -10,7 +10,8 @@
     <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework.V1/master/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>包含了使用 Newbe.Mahua 进行QQ机器人开发所需要的项目模板</description>
-    <releaseNotes>包含了使用 Newbe.Mahua 进行QQ机器人开发所需要的项目模板，详细的使用方法请参看相关教程 https://www.newbe.pro </releaseNotes>
+    <releaseNotes>已于 2020 年 8 月 2 日 正式归档，源码将不再更新。
+    包含了使用 Newbe.Mahua 进行QQ机器人开发所需要的项目模板，详细的使用方法请参看相关教程 https://www.newbe.pro </releaseNotes>
     <copyright>Copyright (c) Everyone, except Author</copyright>
     <tags>Newbe Newbe.Mahua Template</tags>
     <packageTypes>
